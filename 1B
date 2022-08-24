@@ -1,0 +1,47 @@
+#pragma once
+#ifndef UTIL_H
+#define UTIL_H
+#include <iostream>
+#define MAIN3
+#endif
+---
+#include "util.h"
+#include <iostream>
+using namespace std;
+#ifdef MAIN3
+int a_global = 1;
+void escribir(int a) {
+	int a_local = 3;
+	cout << "El valor de la variable que pasamos es = " << a << endl;
+	cout << "El valor de la variable local es = " << a_local << endl;
+	cout << "El valor de la variable Global es = " << a_global << endl;
+}
+int main() {
+	int a_local = 2;
+	escribir(a_local);
+	return 0;
+}
+#endif
+-----
+#include "util.h"
+#include <iostream>
+using namespace std;
+#ifdef MAIN2
+double facto(double num) {
+	double fac = 1;
+	for (int i = 1; i <= num; i++) {
+		fac *= i;
+	}
+	return fac;
+}
+int main() {
+	double num, fac = 1;
+	cout << "Ingrese el numero del que se quiere hallar su factorial: ";
+	cin >> num;
+	cout << "El factorial del numero " << num << " es: " << facto(num) << endl;
+	cout << "Ingrese el numero del que se quiere hallar su factorial: ";
+	cin >> num;
+	cout << "El factorial del numero " << num << " es: " << facto(num) << endl;
+	return 0;
+}
+#endif

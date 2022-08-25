@@ -4,16 +4,29 @@
 #include <vector>
 using namespace std;
 #ifdef MAIN1
-int main() {	
-	int edades[10], num;
-	srand(time(NULL));
+void generar(int *edades) {
 	for (int i = 0; i < 10; i++) {
 		edades[i] = rand() % 151;
 	}
 	cout << "Listado de Informacion del Vector" << endl;
+}
+void imprimir(int *edades) {
 	for (int fila = 0; fila < 10; fila++) {
 		cout << "Edades[" << fila << "]: " << edades[fila] << endl;
 	}
+}
+void ordenar(int* edades) {
+	cout << "Listado de Informacion del Vector de forma descendente" << endl;
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			if (edades[i] > edades[j]) {
+				swap(edades[i], edades[j]);
+			}
+		}
+	}
+}
+void eliminar(int* edades) {
+	int num;
 	cout << endl << "Eliminar valor " << endl;
 	cout << "Ingrese el numero que quiere eliminar: "; cin >> num;
 	for (int j = 0; j < 10; j++) {
@@ -21,12 +34,24 @@ int main() {
 	}
 	for (int j = 0; j < 9; j++) {
 		if (edades[j] == 0) {
-			swap(edades[j], edades[j+1]);
+			swap(edades[j], edades[j + 1]);
 		}
-	}	
+	}
+}
+void lleno(int* edades) {
 	for (int j = 0; j < 10; j++) {
 		if (edades[j] != 0) cout << "Edades[" << j << "]: " << edades[j] << endl;
 	}
+}
+int main() {	
+	int edades[10];
+	srand(time(NULL));
+	generar(edades);
+	imprimir(edades);
+	ordenar(edades);
+	imprimir(edades);
+	eliminar(edades);
+	lleno(edades);
 	getch();
 	return 0;
 }

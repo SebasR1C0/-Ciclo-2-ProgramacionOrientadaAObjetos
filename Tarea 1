@@ -1,0 +1,33 @@
+#include "util.h"
+#include "iostream"
+#include <conio.h>
+#include <vector>
+using namespace std;
+#ifdef MAIN1
+int main() {	
+	int edades[10], num;
+	srand(time(NULL));
+	for (int i = 0; i < 10; i++) {
+		edades[i] = rand() % 151;
+	}
+	cout << "Listado de Informacion del Vector" << endl;
+	for (int fila = 0; fila < 10; fila++) {
+		cout << "Edades[" << fila << "]: " << edades[fila] << endl;
+	}
+	cout << endl << "Eliminar valor " << endl;
+	cout << "Ingrese el numero que quiere eliminar: "; cin >> num;
+	for (int j = 0; j < 10; j++) {
+		if (edades[j] == num) edades[j] = 0;
+	}
+	for (int j = 0; j < 9; j++) {
+		if (edades[j] == 0) {
+			swap(edades[j], edades[j+1]);
+		}
+	}	
+	for (int j = 0; j < 10; j++) {
+		if (edades[j] != 0) cout << "Edades[" << j << "]: " << edades[j] << endl;
+	}
+	getch();
+	return 0;
+}
+#endif

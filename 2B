@@ -1,0 +1,113 @@
+#pragma once
+#ifndef UTIL_H
+#define UTIL_H
+#include <iostream>
+#include <string.h>
+#include <vector>
+using namespace std;
+#define MAIN3
+#endif
+----------------
+#include "util.h"
+#ifdef MAIN1
+int main(){
+    char cadena1[] = "Bienvenidos";
+    char cadena2[] = { 'H','O','L','A', 0 };
+    char cadena3[] = { 'P', 'R' , 'O', 'G', 'R' , 'A', 'M', 'A' , 'O' , '\0' };
+    cout << "Trabajamos como si fuera un Arrays" << endl;
+    cout << "Recorremos la cadena 1: Bienvenidos" << endl;
+    for (int i = 0; i < strlen(cadena1); i++) {
+        cout << cadena1[i] << endl;
+    }
+    cout << "Recorremos la cadena 2: Hola" << endl;
+    for (int i = 0; i < strlen(cadena2); i++) {
+        cout << cadena2[i] << endl;
+    }
+    cout << "Recorremos la cadena 3: Programa" << endl;
+    for (int i = 0; i < strlen(cadena3); i++) {
+        cout << cadena3[i] << endl;
+    }
+    return 0;
+}
+#endif
+------------------------------------
+#include "util.h"
+#ifdef MAIN2
+int main() {
+	vector<string> str_arr1 = { "Andre Sanchez", "Fatima Sanchez", "Alejandro Sanchez", "Lily Sancehz" };
+	cout << "Imprimir la variable como una Arrays" << endl;
+	for (int i = 0; i < 4; i++) {
+		cout << i << " - " << str_arr1[i] << endl;
+	}
+	str_arr1.emplace_back("Zoila Sanchez");
+	cout << "Listando nuevamente los datos" << endl;
+	for (int i = 0; i < str_arr1.size(); i++) {
+		cout << i << " - " << str_arr1[i] << endl;
+	}
+	string str_curso[] = { "Matematica", "Algoritmo", "POO" , "Ingles" };
+	cout << "Imprimir la variable como una Arrays" << endl;
+	for (int i = 0; i < 4; i++) {
+		cout << i << " - " << str_curso[i] << endl;
+	}
+	return 0;
+}
+#endif
+-------------------------------------------
+#include "util.h"
+#ifdef MAIN3
+int main() {
+	vector <int> V_A(20, 7);
+	vector <int> V_B;
+	V_B = V_A;
+	cout << "Imprimiendo el vector B" << endl;
+	for (int i = 0; i < V_B.size(); i++) {
+		cout << i << " - " << V_B[i] << endl;
+	}
+	// 2 - Modificar el tamaño del vector
+	vector <int> V_C(10, 3);
+	cout << "El tamano del vector C actualmente es " << V_C.size() << endl;
+	V_C.resize(5);
+	cout << "El nuevo tamano del vector C es " << V_C.size() << endl;
+	cout << "Imprimiendo el vector C" << endl;
+	for (int i = 0; i < V_C.size(); i++) {
+		cout << i << " - " << V_C[i] << endl;
+	}
+	// 3 - Se añaden progresivamente los numeros del 0 al 9 en un vector vacio
+	vector <int> V_D;
+	cout << "Ingresando informacion al vector D" << endl;
+	for (int i = 0; i < 10; i++) {
+		V_D.push_back(i);
+	}
+	for (int i = 0; i < V_D.size(); i++) {
+		cout << "V_D[" << i << "]:"  << V_D[i] << endl;
+	}
+	// 4 - Eliminar elemento del vector
+	vector <int> V_E;
+	cout << "Ingresando informacion al vector D" << endl;
+	for (int i = 0; i < 10; i++) {
+		V_E.push_back(i * 10);
+	}
+	cout << "El longitud del vector E antes de borrar es " << V_E.size() << endl;
+	for (int i = 0; i < V_E.size(); i++) {
+		cout << "V_E[" << i << "]:" << V_E[i] << endl;
+	}
+	V_E.erase(V_E.begin() + 3, V_E.begin() + 6);
+	cout << "El longitud del vector E despues de borrar es " << V_E.size() << endl;
+	for (int i = 0; i < V_E.size(); i++) {
+		cout << "V_E[" << i << "]:" << V_E[i] << endl;
+	}
+	// 5 - Insertar elementos del vector
+	vector <int> V_F(5, 21);
+	cout << "Listado del vector F con valores iniciales" << endl;
+	for (int i = 0; i < V_F.size(); i++) {
+		cout << "V_F[" << i << "]:" << V_F[i] << endl;
+	}
+	V_F.insert(V_F.begin() + 3, 2);
+	V_F.insert(V_F.end(), 66);
+	cout << "Listado del vector F con valores insertados" << endl;
+	for (int i = 0; i < V_F.size(); i++) {
+		cout << "V_F[" << i << "]:" << V_F[i] << endl;
+	}
+	return 0;
+ }
+#endif

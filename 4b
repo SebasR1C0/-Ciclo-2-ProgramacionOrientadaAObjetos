@@ -1,0 +1,61 @@
+#pragma once
+#ifndef UTIL_H
+#define UTIL_H
+#include <iostream>
+#include <conio.h>
+#include <string>
+#include <windows.h>
+#include <vector>
+using namespace std;
+#define MAIN2
+#endif
+--------------------
+#include"util.h"
+#ifdef MAIN1
+int main() {
+	int primos = 0, multiplos;
+	for (int i = 2; primos != 50; i++) {
+		multiplos = 0;
+		for (int j = 1; j <= i; j++) {
+			if (i % j == 0) {
+				multiplos++;
+			}
+		}
+		if (multiplos == 2) {
+			primos++;
+			cout << i << " ";
+		}
+	}
+	return 0;
+}
+#endif
+-----------------------------
+#include"util.h"
+#ifdef MAIN2
+int voltear(int* V, int n) {
+	int pos = V[n], pos1, abc = 0;
+		do {
+			pos1 = pos % 10;
+			abc = abc * 10 + pos1;
+			pos /= 10;
+		} while (pos >= 1);
+		return abc;
+}
+int main() {
+	int V2[100], V1[100], n;
+	cout << "Ingrese la cantidad de numeros que va a ingresar" << endl;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cout << "Ingrese el valor del espacio " << i + 1 << " : ";
+		cin >> V1[i];
+	}
+	for (int i = 0; i < n; i++) {
+		V2[i] = voltear(V1, i);
+	}
+	cout << endl << "Lista de enunciados" << endl;
+	for (int i = 0; i < n; i++) {
+		cout << "El numero ingresado fue " << V1[i] << " y su inversa es: " << V2[i] << endl;
+	}
+	return 0;
+}
+#endif

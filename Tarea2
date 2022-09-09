@@ -1,0 +1,156 @@
+#pragma once
+#include <iostream>
+#include <conio.h>
+#include <string>
+#include <windows.h>
+#include <vector>
+using namespace std;
+
+string nombreIngredientes[3] = { "Huevo", "Harina", "Vainilla" };
+string unidadesMedidas[3] = { "Gramos", "Kilogramos","Mililitros" };
+
+class CIngredientes {
+private:
+	string nombreI;
+	string unidadMedida;
+	int cantidad;
+	double caloriasPorcion;
+
+public:
+	CIngredientes() {
+		nombreI = nombreIngredientes[rand() % 3];
+		unidadMedida = unidadesMedidas[rand() % 3];
+		cantidad = rand() % 9 + 1;
+		caloriasPorcion = rand() % 400 + 100;
+	}
+	~CIngredientes() {}
+
+	int getCantidad() { return cantidad; }
+	int getCaloriasPorcion() { return caloriasPorcion; }
+
+	void datoIngredientes() {
+		cout << "Nombre ingredientes: " << nombreI << endl;
+		cout << "Unidad medida: " << unidadMedida << endl;
+		cout << "Cantidad: " << cantidad << endl;
+		cout << "Calorias por porcion: " << caloriasPorcion << endl;
+	}
+};
+-----------------------------------
+#pragma once
+#include "util.h"
+
+using namespace std;
+
+string nombrePastel[2] = { "Selva negra", "Torta helada" };
+
+class CPastel {
+private:
+	string nombreP, comprador;
+	int cantidadPersonas;
+	double precio;
+	vector<CIngredientes*> ingredientes;
+
+public:
+	CPastel() {
+		nombreP = nombrePastel[rand() % 2];
+		cantidadPersonas = rand() % 12 + 3;
+		precio = rand() % 40 + 20 + (rand()%10)/10;
+	}
+	CPastel(double precio, int cantidadPersonas) {
+		nombreP = nombrePastel[rand() % 2];
+		this->cantidadPersonas = cantidadPersonas;
+		this->precio = precio;
+	}
+	~CPastel() {
+		cout << "El destrcutor se esta efectuando" << endl;
+	}
+	void setComprador(string comprador) { this->comprador = comprador; }
+	void agregarIngrediente() {
+		CIngredientes* objIngrediente = new CIngredientes();
+		ingredientes.push_back(objIngrediente);
+	}
+	void datoPastel() {
+		cout << "Nombre del comprador: " << comprador << endl;
+		cout << "Nombre del pastel: " << nombreP << endl;
+		cout << "Cantidad personas: " << cantidadPersonas << endl;
+		cout << "Precio: " << precio << endl;
+		for (int i = 0; i < ingredientes.size(); i++) {
+			ingredientes[i]->datoIngredientes();
+		}
+	}
+	int contarIngredientes() {
+		return ingredientes.size();
+	}
+	double caloriasPastel() {
+		for (int i = 0; i < ingredientes.size(); i++) {
+			return ingredientes[i]->getCaloriasPorcion() * ingredientes[i]->getCantidad();
+		}
+	}
+};
+-------------------------------------
+#include "util1.h"
+using namespace std;
+void menu(int &opciones) {
+	do {
+		Sleep(400);
+		system("cls");
+		cout << "1. Ingresar ingredientes pastel" << endl;
+		cout << "2. Contar ingredientes" << endl;
+		cout << "3. Calcular calorias" << endl;
+		cout << "4. Listar pastel" << endl;
+		cout << "Al seleccionar el numero 4 se cerrara la compra" << endl;
+		cout << "Ingrese la opcion: "; cin >> opciones;
+	} while (opciones > 4 || opciones < 1);
+}
+void abc(int opciones, CPastel *objPastel) {
+	switch (opciones) {
+	case 1:
+		objPastel->agregarIngrediente();
+		cout << "SE AGREGO" << endl;
+		break;
+
+	case 2:
+		cout << "Cantidad de ingredientes es: " << objPastel->contarIngredientes() << endl;
+		break;
+
+	case 3:
+		cout << "Cantidad de calorias es: " << objPastel->caloriasPastel() << endl;
+		break;
+
+	case 4:
+		cout << "LISTA PASTEL" << endl;
+		objPastel->datoPastel();
+		break;
+	}
+}
+int main() {
+	srand(time(NULL));
+	string name;
+	int opciones = 0, invitados;
+	double precio;
+	CPastel* objPastel = new CPastel();
+	CPastel* objPastel1;
+	cout << "Primer comprador" << endl;
+	cout << "El nombre del comprador es: ";
+	cin >> name;
+	objPastel->setComprador(name);
+	while (opciones != 4) {
+		menu(opciones);
+		abc(opciones, objPastel);
+	}
+	cout << endl << "Segundo comprador" << endl;
+	cout << "El nombre del comprador es: ";
+	cin >> name;
+	cout << "Ingrese el precio de torta que quiere comprar: ";
+	cin >> precio;
+	cout << "Ingrese el numero de invitados: ";
+	cin >> invitados;
+	objPastel1 = new CPastel(precio, invitados);
+	objPastel1->setComprador(name);
+	while (opciones != 4) {
+		menu(opciones);
+		abc(opciones, objPastel1);
+	}
+	_getch();
+	return 0;
+}

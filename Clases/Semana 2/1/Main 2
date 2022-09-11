@@ -1,0 +1,21 @@
+#include "util.h"
+#ifdef MAIN2
+int main() {
+	vector<string> str_arr1 = { "Andre Sanchez", "Fatima Sanchez", "Alejandro Sanchez", "Lily Sancehz" };
+	cout << "Imprimir la variable como una Arrays" << endl;
+	for (int i = 0; i < 4; i++) {
+		cout << i << " - " << str_arr1[i] << endl;
+	}
+	str_arr1.emplace_back("Zoila Sanchez");
+	cout << "Listando nuevamente los datos" << endl;
+	for (int i = 0; i < str_arr1.size(); i++) {
+		cout << i << " - " << str_arr1[i] << endl;
+	}
+	string str_curso[] = { "Matematica", "Algoritmo", "POO" , "Ingles" };
+	cout << "Imprimir la variable como una Arrays" << endl;
+	for (int i = 0; i < 4; i++) {
+		cout << i << " - " << str_curso[i] << endl;
+	}
+	return 0;
+}
+#endif

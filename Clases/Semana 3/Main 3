@@ -1,0 +1,29 @@
+#include "util.h"
+class Class {
+	double a, b, c;
+public: 
+	double trianguloArea(double a) {
+		cout << "Calcular el area del triangulo Equilatero:" << endl;
+		return (sqrt(3) / 4) * (a * a);
+	}
+	double trianguloArea(double a, double b) {
+		cout << "Calcular el area del triangulo Isoceles:" << endl;
+		return (b * (sqrt((a * a) - ((b * b) / 4))));
+	}
+	double trianguloArea(double a, double b, double c) {
+		double p = (a + b + c) / 2;
+		cout << "Calcular el area del triangulo Escaleno:" << endl;
+		return (sqrt((p * (p - a) * (p - b) * (p - c))));
+	}
+};
+#ifdef MAIN3
+int main() {
+	Class miobj;
+	double a = 2, b = 4, c = 5;
+	cout << "Triangulo 1 - Lado = " << a << " : " << miobj.trianguloArea(a) << endl;
+	cout << "Triangulo 2 - Lado = " << a << " , Base = " << b << " : " << miobj.trianguloArea(a,b) << endl;
+	cout << "Triangulo 2 - Lado = " << a << " , Lado2 = " << b << " , Lado3 = " << c << " : " << miobj.trianguloArea(a,b,c) << endl;
+	_getch();
+	return 0;
+}
+#endif 

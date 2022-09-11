@@ -1,0 +1,24 @@
+#include "util.h"
+class MyClass {
+    string v_cadena;
+public:
+    MyClass(string s) : v_cadena(move(s)) {
+        cout << "Ejecutamos constructor 1" << endl;
+    }
+    MyClass(const MyClass &s) : v_cadena(string(s.v_cadena)) {
+        cout << "Ejecutamos constructor 2" << endl;
+    }
+    ~MyClass() {
+        cout << "Destructor Ejecutandose" << endl;
+    }
+    string& getString() { return v_cadena; }
+};
+#ifdef MAIN2
+int main(){
+    MyClass str1("Bienvenidos");
+    MyClass str2(str1);
+    cout << endl;
+    cout << "Valor de Str2: " << str2.getString() << endl << endl;
+    return 0;
+}
+#endif

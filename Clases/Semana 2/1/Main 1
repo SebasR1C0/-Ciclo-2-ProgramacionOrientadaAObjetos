@@ -1,0 +1,22 @@
+#include "util.h"
+#ifdef MAIN1
+int main(){
+    char cadena1[] = "Bienvenidos";
+    char cadena2[] = { 'H','O','L','A', 0 };
+    char cadena3[] = { 'P', 'R' , 'O', 'G', 'R' , 'A', 'M', 'A' , 'O' , '\0' };
+    cout << "Trabajamos como si fuera un Arrays" << endl;
+    cout << "Recorremos la cadena 1: Bienvenidos" << endl;
+    for (int i = 0; i < strlen(cadena1); i++) {
+        cout << cadena1[i] << endl;
+    }
+    cout << "Recorremos la cadena 2: Hola" << endl;
+    for (int i = 0; i < strlen(cadena2); i++) {
+        cout << cadena2[i] << endl;
+    }
+    cout << "Recorremos la cadena 3: Programa" << endl;
+    for (int i = 0; i < strlen(cadena3); i++) {
+        cout << cadena3[i] << endl;
+    }
+    return 0;
+}
+#endif

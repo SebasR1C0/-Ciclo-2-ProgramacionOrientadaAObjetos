@@ -1,0 +1,22 @@
+#include "util.h"
+#include <iostream>
+using namespace std;
+#ifdef MAIN1
+double facto(double num) {
+	double fac = 1;
+	for (int i = 1; i <= num; i++) {
+		fac *= i;
+	}
+	return fac;
+}
+int main() {
+	double num, fac = 1;
+	cout << "Ingrese el numero del que se quiere hallar su factorial: ";
+	cin >> num;
+	cout << "El factorial del numero " << num << " es: " << facto(num) << endl;
+	cout << "Ingrese el numero del que se quiere hallar su factorial: ";
+	cin >> num;
+	cout << "El factorial del numero " << num << " es: " << facto(num) << endl;
+	return 0;
+}
+#endif

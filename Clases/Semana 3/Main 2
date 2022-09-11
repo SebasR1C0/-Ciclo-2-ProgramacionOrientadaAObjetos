@@ -1,0 +1,23 @@
+#include "util.h"
+class OtraClase {
+public:
+	void imprimir(int a) {
+		cout << "Entero: " << a << endl;
+	}
+	void imprimir(float a) {
+		cout << "Flotante: " << a << endl;
+	}
+	void imprimir(double a) {
+		cout << "Double: " << a << endl;
+	}
+};
+#ifdef MAIN2
+int main() {
+	OtraClase miobj;
+	miobj.imprimir(10);
+	miobj.imprimir(42.0f);
+	miobj.imprimir(42.3);
+	_getch();
+	return 0;
+}
+#endif

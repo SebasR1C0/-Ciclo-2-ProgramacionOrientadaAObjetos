@@ -1,0 +1,27 @@
+#include "util.h"
+#define true 1
+#define false 0
+class OtraClase {
+	bool VarPrivado;
+public:
+	void setVarPrivado(bool nvovalor);
+	bool getVarPrivado();
+};
+void OtraClase ::setVarPrivado(bool nvovalor)
+{
+	VarPrivado = nvovalor;
+}	
+bool OtraClase::getVarPrivado() {
+	return VarPrivado;
+}
+#ifdef MAIN1
+int main() {
+	OtraClase miobj;
+	miobj.setVarPrivado(true);
+	cout << "El valor devuelto es: " << miobj.getVarPrivado() << endl;
+	miobj.setVarPrivado(false);
+	cout << "El valor devuelto es: " << miobj.getVarPrivado() << endl;
+	_getch();
+	return 0;
+}
+#endif 

@@ -5,32 +5,27 @@
 #include <windows.h>
 #include <vector>
 using namespace std;
-
-string nombreIngredientes[3] = { "Huevo", "Harina", "Vainilla" };
-string unidadesMedidas[3] = { "Gramos", "Kilogramos","Mililitros" };
-
+string nombreIngredientes[3] = { "Azucar", "Harina", "Polvo para hornear" };
+string unidadesMedidas[3] = { "Gramos", "Kilogramos","Litros" };
 class CIngredientes {
-private:
-	string nombreI;
-	string unidadMedida;
+	string nombreI, unidad;
 	int cantidad;
 	double caloriasPorcion;
-
 public:
 	CIngredientes() {
 		nombreI = nombreIngredientes[rand() % 3];
-		unidadMedida = unidadesMedidas[rand() % 3];
+		unidad = unidadesMedidas[rand() % 3];
 		cantidad = rand() % 9 + 1;
-		caloriasPorcion = rand() % 400 + 100;
+		caloriasPorcion = rand() % 400 + 100 + (rand() % 10) / 10;
 	}
-	~CIngredientes() {}
-
-	int getCantidad() { return cantidad; }
-	int getCaloriasPorcion() { return caloriasPorcion; }
-
+	~CIngredientes() {
+		cout << "Destructor Ingredientes Ejecutandose" << endl;
+	}
+	int& getCantidad() { return cantidad; }
+	double& getCaloriasPorcion() { return caloriasPorcion; }
 	void datoIngredientes() {
 		cout << "Nombre ingredientes: " << nombreI << endl;
-		cout << "Unidad medida: " << unidadMedida << endl;
+		cout << "Unidad medida: " << unidad << endl;
 		cout << "Cantidad: " << cantidad << endl;
 		cout << "Calorias por porcion: " << caloriasPorcion << endl;
 	}

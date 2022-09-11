@@ -1,0 +1,19 @@
+#include "util.h"
+class NvaClase {
+    int x;
+public:
+    NvaClase(int x): x(x){}
+    ~NvaClase() { 
+        cout << "Ejecutando el Metodo Destructor " << x << endl;
+    }
+};
+NvaClase obj_Clase(1);
+#ifdef MAIN1
+int main(){
+    NvaClase obj2_clase(2);
+    {
+        NvaClase obj3_clase(3);
+    }
+    return 0;
+}
+#endif

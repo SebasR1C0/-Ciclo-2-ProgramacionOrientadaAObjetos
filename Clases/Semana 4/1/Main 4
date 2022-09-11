@@ -1,0 +1,21 @@
+#include "util.h"
+class ClaseBase {
+protected:
+    int unVar = 0;
+public:
+    void unMetodo(void) {
+        unVar++;
+        cout << "Valor unVar= " << unVar << endl;
+    }
+};
+class ClasesDerivada : public ClaseBase // sintaxis de ClasesDerivada hereda de ClasesBase
+{};
+#ifdef MAIN4
+int main() {
+    ClasesDerivada miobj;
+    miobj.unMetodo();
+    miobj.unMetodo();
+    miobj.unMetodo();
+    return 0;
+}
+#endif

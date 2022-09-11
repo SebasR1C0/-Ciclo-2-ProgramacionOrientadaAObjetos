@@ -1,0 +1,32 @@
+#include "util.h"
+class miClase_P {
+    int vp_a, vp_auxiliar;
+public:
+    void printMembers() {
+        cout << "El valor de a es: " << vp_a << endl;
+    }
+    friend class miClase_A;
+};
+class miClase_A {
+public: 
+    void metodoClaseAmiga(int x, miClase_P& mc) {
+        mc.vp_a = x;
+        mc.vp_auxiliar = 13;
+    }
+};
+class miClase_B {
+    int vp_c;
+public:
+    void metodoClaseAmiga_B(int x, miClase_P& mc) {
+        mc.printMembers();
+    }
+};
+#ifdef MAIN3
+int main(){
+    miClase_P obj;
+    miClase_A obj2;
+    obj2.metodoClaseAmiga(10, obj);
+    obj.printMembers();
+    return 0;
+}
+#endif

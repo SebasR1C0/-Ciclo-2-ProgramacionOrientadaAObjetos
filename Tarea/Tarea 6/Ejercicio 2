@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+void listar(double *notas,int n) {
+	for (int i = 0; i < n; i++) {
+		cout << "EL alumno " << i + 1 << " obtuvo la nota: " << notas[i] << endl;
+	}
+}
+int main() {
+	double notas[10], desapro[10],apro[10];
+	int ap = 0, des = 0;
+	cout << "Escriba la nota de 10 alumnos" << endl;
+	for (int i = 0; i < 10; i++) {
+		do {
+			cout << "La nota del alumno " << i + 1 << " es: ";
+			cin >> notas[i];
+		} while (notas[i] < 0 || notas[i] >20);
+		if (notas[i] >= 12.5) {
+			apro[ap] = notas[i];
+			ap++;
+		}
+		else {
+			desapro[des] = notas[i];
+			des++;
+		}
+	}
+	system("cls");
+	cout << "Listado de notas" << endl;
+	listar(notas, 10);
+	cout << endl << "La lista de aprobados es: " << endl;
+	listar(apro, ap);
+	cout << endl << "La lista de desaprobados es: " << endl;
+	listar(desapro, des);
+	return 0;
+}

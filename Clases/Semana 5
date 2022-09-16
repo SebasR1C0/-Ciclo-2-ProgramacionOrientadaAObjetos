@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+#include "util.h"
+using namespace std;
+class Donativo { //monto del donativo
+private:
+	float monto;
+public:
+	Donativo() { monto = 0; }
+	Donativo(float m) {
+		monto = m;
+	}
+	~Donativo(){}
+	friend class FondoEscolar;
+	float getMonto() {	return monto;	}
+	float setMonto(float mto) { monto = mto; }
+	void pedirDonacion() {
+		cout << "Ingrese Donacion a Realizar (monto S/.)= "; cin >> monto;
+	}
+};
+class FondoEscolar {
+private:
+	float gInicial, gPrimaria, gSecun;
+public:
+	FondoEscolar() {
+		gInicial = 0; gPrimaria = 0; gSecun = 0;
+	}
+	FondoEscolar(float val1, float val2, float val3) {
+		gInicial = val1; gPrimaria = val2; gSecun = val3;
+	}
+	~FondoEscolar(){}
+	float getInicial() { return gInicial; }
+	void setInicial(float a) { gInicial = a; }
+	float getPrimaria() { return gPrimaria; }
+	void setPrimaria(float a) { gPrimaria= a; }
+	float getSecun() { return gSecun; }
+	void setSecun(float a) { gSecun = a; }
+	void distribuir(Donativo D) {
+		if (D.monto < 5000)
+			gSecun = D.monto;
+		if (D.monto >= 5000 && D.monto <= 10000)
+		{	gPrimaria = 0.4 *D.monto;
+			gSecun = 0.6 * D.monto;
+		}
+		if (D.monto > 10000)
+		{
+			gInicial = 0.20 * D.monto;
+			gPrimaria = 0.35 *D.monto;
+			gSecun = 0.45 * D.monto;
+		}
+	}
+};
+int main() {
+	Donativo Don;
+	Don.pedirDonacion();
+	FondoEscolar Fondo;
+	Fondo.distribuir(Don);
+	cout << "Al Nivel Inicial le Asignaron: S/. " << Fondo.getInicial() << endl;
+	cout << "Al Nivel Primaria le Asignaron: S/. " << Fondo.getPrimaria() << endl;
+	cout << "Al Nivel Secundaria le Asignaron: S/. " << Fondo.getSecun() << endl;
+	return 0;
+ }

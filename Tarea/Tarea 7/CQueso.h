@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#define anchoConsola 110
-#define altoConsola 30
+#define anchoConsola 120
+#define altoConsola 40
 #define Rectangle System::Drawing::Rectangle
 using namespace std;
 using namespace System;

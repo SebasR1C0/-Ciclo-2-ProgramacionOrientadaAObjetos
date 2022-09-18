@@ -5,7 +5,7 @@ void menu(int& opcion) {
 	do {
 		cout << "1. Dibujar dinosaurio" << endl;
 		cout << "2. Atrapar fantasmas" << endl;
-		cout << "3. Comenzar una invasion (Presione A para aumentar las naves)" << endl;
+		cout << "3. Comenzar una invasion" << endl;
 		cout << "Ingresa una opcion: ";
 		cin >> opcion;
 	} while (opcion < 1 || opcion>6);

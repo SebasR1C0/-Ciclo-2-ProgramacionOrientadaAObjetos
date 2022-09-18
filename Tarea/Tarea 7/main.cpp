@@ -4,7 +4,7 @@
 void menu(int& opcion) {
 	do {
 		cout << "1. Dibujar dinosaurio" << endl;
-		cout << "2. Atrapar fantasmas (Presione espacio para disparar)" << endl;
+		cout << "2. Atrapar fantasmas" << endl;
 		cout << "3. Comenzar una invasion (Presione A para aumentar las naves)" << endl;
 		cout << "Ingresa una opcion: ";
 		cin >> opcion;
@@ -30,12 +30,19 @@ int main() {
 		}
 		break;
 	case 2: 
+		cout << "Presione espacio para disparar"<< endl;
+		cout << "Sus movimientos son con las tecla A,W,S,D"<<endl;
+		system("cls");
 		objB->juego();
 		getch();
 		break;
 	case 3:
+		cout << "Presione A para agregar una nave"<< endl;
+		cout << "Sus movimientos son con las tecla A,W,S,D"<<endl;
+		system("cls");
 		objC->juego();
 		getch();
 		break;
+	case 4:
 	}
 }

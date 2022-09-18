@@ -8,7 +8,6 @@ public:
 	CManejo() {}
 	~CManejo() {}
 	void juego() {
-		srand(time(NULL));
 		Console::SetWindowSize(anchoConsola, altoConsola);
 		Console::CursorVisible = false;
 		vector<CRaton*> ratones;

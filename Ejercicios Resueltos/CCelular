@@ -1,0 +1,70 @@
+#include<iostream>
+#include<conio.h>
+#include<string>
+#include<vector>
+using namespace std;
+class CBateria {
+private:
+	int mAh;
+	string marca;
+public:
+	CBateria(int mAh, string marca){
+		this->mAh = mAh;
+		this->marca = marca;
+	}
+	void mostrar() {
+		cout << "Cantidad mAh: " + to_string(mAh) << endl;
+		cout << "Marca: " + marca << endl;
+	}
+};
+class CChip {
+private:
+	string empresa;
+	int numero;
+public:
+	CChip(string empresa, int numero) {
+		this->empresa = empresa;
+		this->numero = numero;
+	}
+	void mostrar()	{
+		cout << "\tEmpresa: " + empresa << endl;
+		cout << "\tNumero de cel: " + to_string(numero) << endl;
+	}
+};
+class Celular {
+private:
+	string modelo;
+	CBateria* bateria;
+	int nroChips;
+	vector<CChip*> chips;
+public:
+	Celular(string modelo, int cantMAh, string marcaBateria){
+		this->modelo = modelo;
+		this->nroChips = 0;
+		this->bateria = new CBateria(cantMAh, marcaBateria);
+		this->chips = vector<CChip*>(2); 
+	}
+	void mostrar(){
+		cout << "Modelo: " + modelo << endl;
+		bateria->mostrar(); 
+		cout << "Numero de chips: " + to_string(nroChips) << endl;
+		for (int i = 0; i < nroChips; i++){
+			chips[i]->mostrar();
+		}
+	}
+	void agregarChip(CChip*& nuevoChip){
+		if (nroChips < 2){
+			chips[nroChips] = nuevoChip;
+			nroChips++;
+		}
+	}
+};
+int main(){
+	Celular* cel = new Celular("A10PRO", 3400, "Samsung");
+	CChip* entel = new CChip("Entel", 790033810);
+	CChip* claro = new CChip("Claro", 951888120);
+	cel->agregarChip(entel);
+	cel->agregarChip(claro);
+	cel->mostrar();
+	getch();
+}

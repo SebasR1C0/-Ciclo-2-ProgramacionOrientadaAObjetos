@@ -19,7 +19,7 @@ int main() {
 		Console::SetCursorPosition(1, 2); cout << "Vida: " <<vec->getMono()->getVida();
 		vec->borrartodo();
 		if (tiempo % 100 == 0) vec->agregarVacuna();
-		if (vec->monovi()) break;
+		if (vec->getMono()->getInmunidad()== false) { if (vec->monovi()) break; }
 		vec->monovac();
 		if (vec->getMono()->getMovi() < 0) {
 			vec->getMono()->setInmunidad(false);
@@ -38,7 +38,7 @@ int main() {
 	}
 	Console::Clear();
 	cout << "GAME OVER" << endl;
-	cout << "Los numero de pasos fueron: " << vec->getMono()->getPaso() << endl;;
+	cout << "Los pasos fueron: " << vec->getMono()->getPaso() << endl;;
 	_getch();
 	return 0;
 }

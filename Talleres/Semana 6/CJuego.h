@@ -1,28 +1,76 @@
 #pragma once
-#include "CTerrestre.h"
-class CCarro : public CTerrestre
+#include "CBicicleta.h"
+#include "CPersona.h"
+#include "CBus.h"
+#include "CCarro.h"
+#include <conio.h>
+class CJuego
 {
 public:
-	CCarro();
-	~CCarro();
-	void mover();
+	CJuego();
+	~CJuego();
+	bool colision();
+	void jugar();
+	void gestionarTodo();
 private:
-	
+	CPersona* persona;
+	vector<CTerrestre*> vehiculos;
 };
 
-CCarro::CCarro() : CTerrestre(8, 3)
+CJuego::CJuego()
 {
-	dx = 3;
-	tipo = 1;
-	dibujo.push_back("  | ~\\_");
-	dibujo.push_back("[| _ | -"	);
-	dibujo.push_back(" (_)(_)");
+	persona = new CPersona();
+	for (int i = 0; i < 1 + rand()% 8; i++)
+		switch (rand() % 3)
+		{
+		case 0: vehiculos.push_back(new CCarro()); break;
+		case 1: vehiculos.push_back(new CBicicleta()); break;
+		case 2: vehiculos.push_back(new CBus()); break;
+		}
 }
 
-CCarro::~CCarro()
+CJuego::~CJuego()
 {
 }
 
-void CCarro::mover() {
-	validarMover(dx * -1, dy * -1);
+bool CJuego::colision()
+{
+	for (int i = 0; i < vehiculos.size(); i++) {
+		if (vehiculos[i]->gettipo() != 3) {
+			if (vehiculos[i]->colision(persona->getx(), persona->gety(), persona->getancho(), persona->getalto()))
+				return true;
+		}
+	}
+	return false;
+}
+
+void CJuego::jugar()
+{
+	char tecla;
+	do
+	{
+		tecla = NULL;
+		if (kbhit()) {
+			tecla = getch();
+			tecla = toupper(tecla);
+		}
+		persona->direccion(tecla);
+		gestionarTodo();
+		_sleep(100);
+	} while (!colision());
+	Console::Clear();
+	cout << "Perdiste";
+	getch();
+}
+
+void CJuego::gestionarTodo()
+{
+	for (int i = 0; i < vehiculos.size(); i++) {
+		vehiculos[i]->borrar();
+		vehiculos[i]->mover();
+		vehiculos[i]->dibujar();
+	}
+	persona->borrar();
+	persona->mover();
+	persona->dibujar();
 }

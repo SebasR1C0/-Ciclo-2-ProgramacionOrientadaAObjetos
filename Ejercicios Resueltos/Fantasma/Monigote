@@ -1,0 +1,49 @@
+#pragma once
+#include "CBala.h"
+class CMono : public CBase {
+private:
+	int auxdx, auxdy;
+	vector<CBala*>bala;
+public:
+	CMono() : CBase(2,1) {
+		x = 1;
+		y = 1;
+		dibujo.push_back("0");
+		dibujo.push_back("|");
+	}
+	~CMono() {}
+	void direccion(char key) {
+		dx = dy = 0;
+		switch (key)
+		{
+		case 'A': dx = -1; auxdx = -1; auxdy = 0; break;
+		case 'S': dy = 1; auxdy = 1; auxdx = 0; break;
+		case 'D': dx = 1; auxdx = 1; auxdy = 0; break;
+		case 'W': dy = -1; auxdy = -1; auxdx = 0; break;
+		}
+	}
+	void agrebala() {
+			bala.push_back(new CBala(x, y, auxdy, auxdx));
+	}
+	void gesbala() {
+		for (int i = 0; i < bala.size(); i++) {
+			bala[i]->borrar();
+			bala[i]->mover();
+			bala[i]->dibujar();
+		}
+		for (int i = 0; i < bala.size(); i++)
+			if (bala[i]->getDy() == 0 && bala[i]->getDx() == 0) {
+				bala[i]->borrar();
+				bala.erase(bala.begin() + i);
+			}
+		for (int i = 0; i < bala.size(); i++)
+			if (bala[i]->getEliminar()) {
+				bala[i]->borrar();
+				bala.erase(bala.begin() + i);
+			}
+	}
+	vector<CBala*> getBala() { return bala; }
+	void mover() {
+		vmover(0, 0);
+	}
+};

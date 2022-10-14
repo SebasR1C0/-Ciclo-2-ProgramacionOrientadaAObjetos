@@ -1,0 +1,6 @@
+t = int(input("Ingrese el timpo en segundos: "))
+h = t/3600
+t = t %3600
+m = t/60
+s = t %60
+print("El tiempo es " + str(int(h))+":"+str(int(m))+":"+str(int(s)))

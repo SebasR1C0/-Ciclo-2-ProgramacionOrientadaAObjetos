@@ -1,0 +1,10 @@
+dona = float(input("Ingrese la donacion en soles: "))
+if  dona < 5000:
+	print("El monto total para secundaria es:", dona)
+elif 5000<=dona<=10000:
+	print("El monto total para secundaria es:", dona*0.6)
+	print("El monto total para primaria es:", dona*0.4)
+elif 10000<dona:
+	print("El monto total para secundaria es:", dona*0.45)
+	print("El monto total para secundaria es:", dona*0.35)
+	print("El monto total para secundaria es:", dona*0.2)

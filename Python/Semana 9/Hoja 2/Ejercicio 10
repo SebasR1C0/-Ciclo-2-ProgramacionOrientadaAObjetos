@@ -1,0 +1,7 @@
+nota = float(input("Ingrese la nota del alumno: "))
+if  0<=nota<12.5:
+	print("Desaprobado")
+elif 20>=nota>=12.5:
+	print("Aprobado")
+else:
+	print("Fuera de rango")

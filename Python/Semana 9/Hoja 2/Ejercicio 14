@@ -1,0 +1,5 @@
+num = input("Ingrese numero menor de 4 cifras: ")
+if int(num)>=1000:
+    print("Error")
+else:
+    print("El numero ingresado tiene " + str(len(num)) + " digitos")

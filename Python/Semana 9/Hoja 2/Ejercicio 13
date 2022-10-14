@@ -1,0 +1,12 @@
+num = int(input("Ingrese numero de 3 cifras: "))
+if num<100 or num>999:
+  print("ERROR FUERA DE RANGO")
+else:
+  cen = num//100
+  resto1 = num%100
+  dec = resto1//10
+  uni = resto1%10
+  if cen == uni:
+    print("El numero " + str(num)+ " es Capicua")
+  else:
+    print("El numero " + str(num)+ " NO es Capicua")

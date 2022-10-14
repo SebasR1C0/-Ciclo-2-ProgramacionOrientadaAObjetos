@@ -1,0 +1,7 @@
+sueldo = float(input("Ingrese su edad sueldo: "))
+if  sueldo < 2000:
+	print("Tiene un sueldo bruto de:",sueldo*1.2)
+elif 2000<=sueldo<=3000:
+	print("Tiene un sueldo bruto de:",sueldo*1.13)
+elif sueldo > 3000:
+	print("Tiene un sueldo bruto de:",sueldo*1.09)

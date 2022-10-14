@@ -1,0 +1,4 @@
+a = float(input("Ingrese el valor de A: "))
+b = float(input("Ingrese el valor de B: "))
+c = float(input("Ingrese el valor de C: "))
+print("El area total es:", b*c + b*(a-c))

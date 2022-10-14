@@ -1,0 +1,3 @@
+toy = int(input("Enter number of toys: "))
+clown = int(input("Enter number of clowns: "))
+print("Package weight is: " + str(clown*112 + toy*75) + "g")

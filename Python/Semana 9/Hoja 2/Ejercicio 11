@@ -1,0 +1,11 @@
+consumo = int(input("Ingrese la cantidad de GB que ha consumido: "))
+pago = 0;
+if  consumo<= 4:
+	pago = 50
+elif 4<=consumo<=8:
+	pago = 85
+elif 8<consumo:
+	pago = 85 + (consumo-8)*4.5
+else:
+	print("Fuera de rango")
+print("El pago final es:", pago)

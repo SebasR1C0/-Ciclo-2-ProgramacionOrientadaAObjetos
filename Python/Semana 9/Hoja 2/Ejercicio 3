@@ -1,0 +1,8 @@
+car = float(input("Ingrese la cantidad de dinero de Carmela es: "))
+ja = float(input("Ingrese la cantidad de dinero de Javier es: "))
+eu = float(input("Ingrese la cantidad de dinero de Eusebio es: "))
+total = float(car+ja+eu)
+print("La capital total es:", total)
+print("El porcentaje de Carmela es: " + str(car*100/total) + "%")
+print("El porcentaje de Javier es: " + str(ja*100/total) + "%")
+print("El porcentaje de Eusebio es: " + str(eu*100/total) + "%")

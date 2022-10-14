@@ -1,0 +1,3 @@
+m=float(input("Introduce un producto en euro con 2 decimales: " ))
+print("Numero de euros: " + str(round(m-0.5)))
+print("Numero de centimos: " + str(round(m*100)%100))

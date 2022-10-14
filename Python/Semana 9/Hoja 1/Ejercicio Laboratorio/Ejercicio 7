@@ -1,0 +1,10 @@
+tipo = input("Ingrese la categoria del libro (A,B,C): ")
+tipo = tipo.upper()
+tarjeta = int(input("Ingrese 1 si va pagar con tarjeta y 0 si no va pagar con tarjeta: "))
+if  tipo == 'A':
+	monto = 40
+elif tipo == 'B':
+	monto = 30 + 30*tarjeta*0.185
+elif tipo == 'C':
+	monto = 25+30*tarjeta*0.4
+print("El monto total es:", monto)

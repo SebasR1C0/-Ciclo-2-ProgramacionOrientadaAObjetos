@@ -1,0 +1,15 @@
+num1 = int(input("Ingrese Valor del Numero 1: "))
+max = num1
+min = num1
+num2 = int(input("Ingrese Valor del Numero 2: "))
+if num2>max:
+  max = num2
+if num2<min:
+  min=num2
+num3 = int(input("Ingrese Valor del Numero 3: "))
+if num3>max:
+  max = num3
+if num3<min:
+  min=num3
+print("El maximo valor es ",max)
+print("El minimo valor es ",min)

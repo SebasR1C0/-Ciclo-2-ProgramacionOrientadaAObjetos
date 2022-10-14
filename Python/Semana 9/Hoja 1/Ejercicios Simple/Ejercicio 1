@@ -1,0 +1,4 @@
+horas = input("Enter number of hours worked: ")
+pagar = input("Enter number of cost per hour: ")
+total = round(float(horas)*float(pagar))
+print("Total amount is: " + str(total))

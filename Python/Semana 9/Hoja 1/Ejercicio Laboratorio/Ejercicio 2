@@ -1,0 +1,16 @@
+nota1 = int(input("Ingrese la nota 1: "))
+nota2 = int(input("Ingrese la nota 2: "))
+nota3 = int(input("Ingrese la nota 3: "))
+prom = int((nota1+nota2+nota3)/3)
+print("El promedio es:",prom)
+if  0<=prom<=10:
+	cate = "D"
+elif 11<=prom<=13:
+	cate = "C"
+elif 14<=prom<=16:
+	cate = "B"
+elif 17<=prom<=20:
+	cate = "A"
+else: 
+	print("Fuera de rango")
+print("La categoria es", cate)

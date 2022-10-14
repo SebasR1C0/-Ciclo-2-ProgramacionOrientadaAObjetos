@@ -1,0 +1,5 @@
+num = input("Ingrese un numero de 3 cifras: ")
+if float(num)<100 or float(num)>=1000:
+    print("ERROR -1")
+else:
+    print(str(num[::-1]))

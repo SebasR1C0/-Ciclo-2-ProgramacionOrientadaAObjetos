@@ -1,0 +1,8 @@
+k = int(input("Ingrese el valor de k: "))
+num5 = k//5
+k = k%5
+num2 = k//2
+k = k%5
+num1 = k
+print("La cantidad de monedas es para 5s " + str(int(num5)) + " monedas para 2s " + str(int(num2)))
+print(" monedas para 1s " + str(int(num1)))

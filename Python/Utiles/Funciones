@@ -1,0 +1,55 @@
+def media(lista):
+    return sum(lista)/len(lista)
+print(media([1,2,3]))
+
+def cuadrado(lista):
+    list = []
+    for i in lista:
+        list.append(i**2)
+    return list
+print(cuadrado([1,2,3,4,5]))
+
+
+
+def todecimal(n):
+    n = list(n)
+    n.reverse()
+    decimal = 0
+    for i in range(len(n)):
+        decimal += int(n[i]) * 2 ** i
+    return decimal
+print("El valor decimal es: " + str(todecimal('10110')))
+
+def tobinario(n):
+    binary =[]
+    while n>0:
+        binary.append(str(n%2))
+        n//=2
+    binary.reverse()
+    return"".join(binary)
+print("El valor decimal es: " + str(tobinario(22)))
+
+def calcule_media_desviacion(*args):
+    total = 0
+    for i in args:
+        total+=i
+    media = total /len(args)
+    total = 0
+    for i in args:
+        total+= (i-media)**2
+    desviacion = (total/len(args))**0.5
+    return media, desviacion
+a,b,c,d = 3,5,10,12
+media, desviacion = calcule_media_desviacion(a,b,c,d)
+print(f"Datos: {a} {b} {c} {d}")
+print(f"Media: {media}")
+print(f"Desviacion: {desviacion}")
+
+#Por referencia
+def Clista(N):
+    lista.append(N)
+    print("Nueva Lista: ")
+lista = [1,2,3,4,5]
+n = input("Ingrese numero agregar: ")
+Clista(n)
+print(lista)

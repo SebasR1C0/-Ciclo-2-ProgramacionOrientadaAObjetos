@@ -1,0 +1,51 @@
+for i in range(10):
+    for j in range(i+1):
+        print("*", end="")
+    print("")
+    
+for i in range(1,11,2):
+    for j in range(i,0,-2):
+        print(j, end=" ")
+    print("")
+
+for i in range(1,11):
+    for j in range(1,11):
+        print(i*j, end="\t")
+    print("")
+
+n=int(input("Ingrese Numero positivo mayor que 2: "))
+i=2
+while n % i != 0:
+  i +=1
+if i==n:
+  print("El numero "+ str(n)+ " Es PRIMO")
+else:
+  print("El numero " + str(n)+ " NO Es PRIMO")
+
+n=int(input("Ingrese Numero positivo mayor que 2: "))
+for i in range(2,n):
+  if n % i ==0:
+    break
+if (i+1)==n:
+  print("El numero "+ str(n)+ " Es PRIMO")
+else:
+  print("El numero " + str(n)+ " NO Es PRIMO")
+  
+  dato = input("Ingrese palabra: ")
+for i in range(len(dato)-1,-1,-1):
+    print(dato[i], end=" ")
+print("")
+
+frase = input("Introduzca la fecha: ")
+vocal = input("Introduce la vocal al buscar: ")
+conta = 0
+for i in frase:
+    if i == vocal:
+        conta += 1
+print("La letra '%s' aparece %2i veces en la frase '%s'."%(vocal,conta,frase))
+
+while True:
+    frase = input("Ingrese palabra: ")
+    if frase == "salir":
+        break
+    print(frase)

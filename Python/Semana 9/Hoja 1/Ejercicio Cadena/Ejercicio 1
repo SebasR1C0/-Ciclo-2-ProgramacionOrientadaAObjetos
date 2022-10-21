@@ -1,1 +1,2 @@
-
+fono = input("Introduce un numero telefonico con el formato +XX-XXXXXXXXX-XX")
+print("El numero de telefono es ",fono[5:-3])

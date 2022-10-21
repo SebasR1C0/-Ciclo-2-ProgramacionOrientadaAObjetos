@@ -1,0 +1,7 @@
+import math as m
+h = float(input("Ingrese el valor de h: "))
+r = float(input("Ingrese el valor del radio: "))
+alto = m.sqrt((h**2) - (r**2))
+areatr = alto*r
+areaci = (3.14/2)*(r**2)
+print("El area total es: ", round(areatr + areaci,2))

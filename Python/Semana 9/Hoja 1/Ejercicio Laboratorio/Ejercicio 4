@@ -1,0 +1,12 @@
+letra = "SI"
+promedio = 0
+datos = []
+while letra != "NO":
+    abc = int(input("Escriba la nota del alumno: "))
+    datos.append(abc)
+    letra = input("Tiene otro alumno (SI o NO): ")
+    letra = letra.upper()
+    print("\t")
+for i in datos:
+    promedio += i
+print("El promedio es: ", round(promedio/len(datos),2))

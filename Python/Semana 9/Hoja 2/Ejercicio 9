@@ -1,0 +1,12 @@
+h = int(input("Ingrese el numero de horas: "))
+m = int(input("Ingrese el numero de minutos: "))
+s = int(input("Ingrese el numero de segundos: "))
+print("La hora es: " + str(h)+":"+str(m)+":"+str(s))
+s += 1
+a = s//60
+s = s%60
+m += a
+a = m//60
+m = m%60
+h += a 
+print("La hora aumentada un segundo es: " + str(h)+":"+str(m)+":"+str(s))

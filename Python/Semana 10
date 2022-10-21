@@ -1,0 +1,25 @@
+cursos = ["POO", "Fundamentos", "Diseno", "Algoritmo", "BD"]
+notas = []
+for conta in cursos:
+    print("Yo estudio " + conta)
+for conta in cursos:
+    nota = input("Que nota has sacado en " + conta + "? :")
+    notas.append(nota)
+for i in range(len(cursos)):
+    print("En " + cursos[i] + " has obtenido " + notas[i] + " de nota")
+
+#Ordenar de forma ascendente
+numeros=[]
+print("Introduce numero de manera desordenada")
+for i in range(6):
+    numeros.append(int(input("Ingrese numero " + str(i) + ": ")))
+numeros.sort()
+print("Los numeros ordenados son: " + str(numeros))
+
+#Voltear
+number = [1,2,3,4,5,6,7,8,9,10]
+print("Lista Inicial: " + str(number))
+number.reverse()
+for i in number:
+    print(i, end=", ")
+print("")

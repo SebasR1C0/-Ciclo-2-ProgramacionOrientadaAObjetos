@@ -1,0 +1,7 @@
+prec = float(input("Ingrese pago por hora trabajada: "))
+hora = int(input("Ingrese las horas trabajadas: "))
+sb = prec*hora
+sbr = round(sb*118/100,2)
+print("El sueldo basico", sb)
+print("El segundo socio ha ganado S/", sbr)
+print("El tercer socio ha ganado S/", round(sbr*88/100,2))

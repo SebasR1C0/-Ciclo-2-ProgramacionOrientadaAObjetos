@@ -1,0 +1,6 @@
+m = int(input("Cantidad de sandiwichs de la clase M es: "))
+j = int(input("Cantidad de sandiwichs de la clase J es: "))
+k = int(input("Cantidad de sandiwichs de la clase K es: "))
+z = int(input("Cantidad de sandiwichs de la clase Z es: "))
+total = round(m*4.5 + j*5 + k*7.5 + z*13.5,2)
+print("El precio total es: ", total)

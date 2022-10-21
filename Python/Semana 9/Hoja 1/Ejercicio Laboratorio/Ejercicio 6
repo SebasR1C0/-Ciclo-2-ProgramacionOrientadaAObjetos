@@ -1,0 +1,17 @@
+n = int(input("Ingrese la cantidad de votantes: "))
+votos = []
+max = 0
+for i in range(n):
+    v = 0
+    while v!=1 and v!=2 and v!=3:
+        v = int(input("Ingrese al candidato que va votar(1,2,3): "))
+    votos.append(v-1)
+for i in range(0,3):
+    if max< votos.count(i):
+        max = votos.count(i)
+        z = i+1
+print("La votacion lo gano el candidato " + str(z) + " con " + str(max) + " votos" )
+print("Porcentajes")
+print("Candidato 1: ", round(votos.count(0)*100/n,2) )
+print("Candidato 2: ", round(votos.count(1)*100/n,2) )
+print("Candidato 3: ", round(votos.count(2)*100/n,2) )

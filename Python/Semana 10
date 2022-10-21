@@ -40,3 +40,13 @@ for i in range(len(cursos)-1,-1,-1):
   if nota > 11:
     cursos.pop(i)
 print("No aprobastes "+str(cursos))
+
+#Contador de letras
+frase = input("Introduce una frase o palabra: ")
+vocales = ['a','e','i','o','u']
+for vocal in vocales:
+  conta = 0
+  for letra in frase:
+    if letra == vocal:
+      conta +=1
+  print("La vocal "+vocal+" aparece "+str(conta)+" veces")

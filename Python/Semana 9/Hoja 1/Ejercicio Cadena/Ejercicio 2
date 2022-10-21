@@ -1,0 +1,6 @@
+correo =input("Ingrese tu correo electronico: ")
+for letra in correo:
+   print(letra, end="")
+   if letra == '@':
+     break
+print("ceu.es")

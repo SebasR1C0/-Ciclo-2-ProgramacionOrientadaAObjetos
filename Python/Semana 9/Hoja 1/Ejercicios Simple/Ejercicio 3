@@ -1,0 +1,5 @@
+pan =int(input("Ingrese el numero de panes vendidos: "))
+costo = round(pan*3.49,2)
+print("El precio del pan si fuera del dia: ", costo)
+print("El descuento del pan: ", round(costo*60/100,2))
+print("El precio final: ", round(costo*40/100,2))

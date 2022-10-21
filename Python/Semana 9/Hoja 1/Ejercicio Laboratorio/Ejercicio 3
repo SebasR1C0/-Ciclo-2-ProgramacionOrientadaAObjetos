@@ -1,0 +1,12 @@
+sueldo = float(input("Ingrese su sueldo: "))
+cate = 0
+while cate != 1 and cate != 3 and cate != 7 and cate !=11:
+    cate = int(input("Ingrese su categoria(1,3,7,11): "))
+    if cate == 1:
+        print("Su sueldo bruto es: ", round(sueldo*138/100,2))
+    if cate == 3:
+        print("Su sueldo bruto es: ", round(sueldo*121.5/100,2))
+    if cate == 7:
+        print("Su sueldo bruto es: ", round(sueldo*112/100,2))
+    if cate == 11:
+        print("Su sueldo bruto es: ", round(sueldo*108.5/100,2))

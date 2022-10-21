@@ -1,0 +1,11 @@
+print("Recuerde que el porcentaje de las acciones tiene que sumar 100%")
+num1 = num2 = num3 = 0
+while num1 + num2 + num3 != 100:
+    num1 = float(input("Ingrese el porcentaje de las acciones del primer socio: "))
+    num2 = float(input("Ingrese el porcentaje de las acciones del segundo socio: "))
+    num3 = float(input("Ingrese el porcentaje de las acciones del tercer socio: "))
+    print("\t")
+gan = float(input("La ganacia total de la empresa es: "))
+print("El primer socio ha ganado S/", round(gan*num1/100,2))
+print("El segundo socio ha ganado S/", round(gan*num2/100,2))
+print("El tercer socio ha ganado S/", round(gan*num3/100,2))

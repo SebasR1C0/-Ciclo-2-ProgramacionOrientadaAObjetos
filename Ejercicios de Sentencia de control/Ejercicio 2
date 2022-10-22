@@ -1,0 +1,12 @@
+n = -1
+while n!=0.0 and n!=0.4 and n<0.6:
+    n = float(input("Ingrese la puntacion del empleado (desde 0.0 hasta 1): "))
+if 0.0==n:
+    print("Puntuacion: Inaceptable")
+    print("El dinero conseguido en euros es: ", n*2400)
+if 0.4==n:
+    print("Puntuacion: Aceptable")
+    print("El dinero conseguido en euros es: ", n*2400)
+if 0.6<=n:
+    print("Puntuacion: Meritorio")
+    print("El dinero conseguido en euros es: ", n*2400)

@@ -1,0 +1,20 @@
+pr = float(input("Cantidad de dinero invertido en dolares: "))
+se = float(input("Cantidad de dinero invertido en euros: "))
+te = float(input("Cantidad de dinero invertido en soles: "))
+total = round(pr*3.11 + se*4.05 + te)
+if total<= 3*4.05*se:
+    print("La ganancia del primero sera un: ", pr*3.11*110/100)
+    print("La ganancia del segundo sera un: ", se*4.05*115/100)
+    print("La ganancia del tercero sera un: ", te*120/100)
+elif 2*4.05*se<=total< 3*4.05*se:                            
+    print("La ganancia del primero sera un: ", pr*3.11*125/100)
+    print("La ganancia del segundo sera un: ", se*4.05*115/100)
+    print("La ganancia del tercero sera un: ", te*110/100)
+elif 2*4.05*se<total:                            
+    print("La ganancia del primero sera un: ", pr*3.11*115/100)
+    print("La ganancia del segundo sera un: ", se*4.05*115/100)
+    print("La ganancia del tercero sera un: ", te*115/100)
+else:                                       
+    print("La ganancia del primero sera un: ", total*115/300)
+    print("La ganancia del segundo sera un: ", total*115/300)
+    print("La ganancia del tercero sera un: ", total*115/300)

@@ -1,0 +1,10 @@
+n = -1
+while n!=1 and n!=2:
+    n = int(input("Cual es la eleccion de su pizza (1: Vegetariana y 2:No Vegetariana)? : "))
+if n==1:
+    a = str(input("Elige solo un ingrediente (Pimiento y tofu): "))
+    print("La pizza es vegetariana")
+else:
+    a = str(input("Elige solo un ingrediente (Peperoni, Jamon y Salmon): "))
+    print("La pizza no es vegetariana")
+print(f"Los ingredientes son:  Mozzarella, tomate y {a}")

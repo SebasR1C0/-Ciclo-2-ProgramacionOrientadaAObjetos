@@ -1,0 +1,9 @@
+n = -1
+while n<0:
+    n = int(input("Ingrese la edad del usuario: "))
+if 4>n:
+    print("La entrada es gratis")
+elif 4<n<=18:
+    print("La entrada cuesta 5 euros")
+elif 18<n:
+    print("La entrada cuesta 10 euros")

@@ -1,0 +1,29 @@
+import math as m
+def primo(abc, v):
+    conta = 0
+    for i in range(1,abc[v]+1):
+        if (abc[v]%i)==0:
+            conta+=1
+    if conta == 2:
+        print(f"El numero {abc[v]} es primo")
+    else : 
+        print(f"El numero {abc[v]} no es primo")
+a = 0
+while a<1000 or a>9999:
+    a = int(input("Ingrese el valor de A: "))
+abc = list()
+for i in range(4):
+    if a>9:
+        b = a//10**(3-i)
+        a = a%10**(3-i)
+    else:
+        b = a
+    abc.append(b)
+print("La suma de digitos es: ", abc[0]+abc[1]+abc[2]+abc[3])
+if abc[0] == abc[3] and abc[1]==abc[2]:
+    print("Es capicua")
+else: 
+    print ("No es capicua")
+print("Los numeros que son primos son: ")
+for i in range(4):
+    primo(abc,i)

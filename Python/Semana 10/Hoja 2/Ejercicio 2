@@ -1,0 +1,36 @@
+n = "O"
+c = -1
+while n!="A" and n!="B" and n!="C" and n!="D":
+    n = str(input("Ingrese la escala de pago: "))
+    n = n.upper()
+while c<1:
+    c = int(input("Ingresa el numero de cursos: "))
+if n =="A":
+    if 1<=c<=5:
+        total = 350 + 400
+    elif 6<=c<=8:
+        total = 350 + 600
+    else:
+        total = 350 + 900
+if n =="B":
+    if 1<=c<=3:
+        total = 350 + 350
+    elif 4<=c<=7:
+        total = 350 + 500
+    else:
+        total = 350 + 700
+if n =="C":
+    if 1<=c<=3:
+        total = 350 + 320
+    elif 4<=c<=7:
+        total = 350 + 480
+    else:
+        total = 350 + 685
+if n =="D":
+    if 1<=c<=4:
+        total = 350 + 310
+    elif 5<=c<=8:
+        total = 350 + 475
+    else:
+        total = 350 + 680
+print("El importe a cancelar es de S/",round(total,2))

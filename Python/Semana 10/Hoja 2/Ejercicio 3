@@ -1,0 +1,19 @@
+a = b = c = conta = 0
+while a<1:
+    a = int(input("Ingresa el lado 1: "))
+while b<1:
+    b = int(input("Ingresa el lado 2: "))
+while c<1:
+    c = int(input("Ingresa el lado 3: "))
+if a == b:
+    conta+=1
+if c == b:
+    conta+=1
+if a == c:
+    conta+=1
+if conta == 0:
+    print("El triangulo es Escaleno")
+if conta == 1:
+    print("El triangulo es Isosceles")
+if conta == 3:
+    print("El triangulo es Equilatero")

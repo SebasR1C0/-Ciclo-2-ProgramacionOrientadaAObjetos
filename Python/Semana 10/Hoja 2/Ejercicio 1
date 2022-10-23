@@ -1,0 +1,17 @@
+n = -1
+c = -1
+while n!=1 and n!=2:
+    n = int(input("Ingrese zona (1 o 2): "))
+while c<0:
+    c = float(input("Ingrese consumo: "))
+if n ==1:
+    if c<=100:
+        total = 50+ c*0.75
+    else:
+        total = 50+ 100*0.75+(c-100)*0.9
+else:
+    if c<=100:
+        total = 25+ c*0.3
+    else:
+        total = 25+ 100*0.3+(c-100)*0.7
+print("El monto a pagar es: ",round(total,2))

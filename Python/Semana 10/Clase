@@ -1,0 +1,52 @@
+cursos = ["POO", "Fundamentos", "Diseno", "Algoritmo", "BD"]
+notas = []
+for conta in cursos:
+    print("Yo estudio " + conta)
+for conta in cursos:
+    nota = input("Que nota has sacado en " + conta + "? :")
+    notas.append(nota)
+for i in range(len(cursos)):
+    print("En " + cursos[i] + " has obtenido " + notas[i] + " de nota")
+
+#Ordenar de forma ascendente
+numeros=[]
+print("Introduce numero de manera desordenada")
+for i in range(6):
+    numeros.append(int(input("Ingrese numero " + str(i) + ": ")))
+numeros.sort()
+print("Los numeros ordenados son: " + str(numeros))
+
+#Voltear
+number = [1,2,3,4,5,6,7,8,9,10]
+print("Lista Inicial: " + str(number))
+number.reverse()
+for i in number:
+    print(i, end=", ")
+print("")
+
+cursos = ["POO","Fundamentos","Algortimo","Diseno","BD"]
+aprobe=[]
+for curso in cursos:
+  nota = float(input("Promedio del curso: "+ curso+"?: "))
+  if nota >= 11:
+    aprobe.append(curso) 
+for curso in aprobe:
+  cursos.remove(curso) 
+print("No aprobastes "+str(cursos))
+
+cursos = ["POO","Fundamentos","Algortimo","Diseno","BD"]
+for i in range(len(cursos)-1,-1,-1):
+  nota = float(input("Promedio del curso: "+cursos[i]+"?: "))
+  if nota > 11:
+    cursos.pop(i)
+print("No aprobastes "+str(cursos))
+
+#Contador de letras
+frase = input("Introduce una frase o palabra: ")
+vocales = ['a','e','i','o','u']
+for vocal in vocales:
+  conta = 0
+  for letra in frase:
+    if letra == vocal:
+      conta +=1
+  print("La vocal "+vocal+" aparece "+str(conta)+" veces")

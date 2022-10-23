@@ -1,0 +1,41 @@
+a = b = c = 'a'
+while a!= "M" and a!= "A" and a!= "L":
+    a = input("Ingrese la marca del fabricante (M: Microsoft, A: Appleo L: Linux): ")
+    a = a.upper()
+while b!= "S" and b!= "L":
+    b = input("Ingrese tipo de programa (S: Sistema operativo o L: Lenguaje de programacion): ")
+    b = b.upper()
+if b == "L":
+    while c!= "C" and c!= "T" and c!="O":
+        c = input("Ingrese el dispositivo (C:Celular, T: Tabla u O: Otros): ")
+        c = c.upper()
+if a == "M":
+    if b == "L":
+        if c == "C":
+            print("El monto a pagar es 1800")
+        elif c == "T":
+            print("El monto a pagar es 1200")
+        else:
+            print("El monto a pagar es 900")
+    else:
+        print("El monto a pagar es 1500")
+if a == "A":
+    if b == "L":
+        if c == "C":
+            print("El monto a pagar es 1900")
+        elif c == "T":
+            print("El monto a pagar es 1800")
+        else:
+            print("El monto a pagar es 1600")
+    else:
+        print("El monto a pagar es 2500")
+if a == "L":
+    if b == "L":
+        if c == "C":
+            print("El monto a pagar es 100")
+        elif c == "T":
+            print("El monto a pagar es 150")
+        else:
+            print("El monto a pagar es 50")
+    else:
+        print("El monto a pagar es 1000")

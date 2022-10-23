@@ -1,0 +1,42 @@
+a = b = c = 'a'
+while a!= "V" and a!= "P" and a!= "O":
+    a = input("Zona elegida (V: vip, P: platea u O: popular): ")
+    a = a.upper()
+while b!= "C" and b!= "T":
+    b = input("Tipo de pago (C: contado o T: tarjeta): ")
+    b = b.upper()
+if b == "T":
+    while c!= "C" and c!= "N" and c!="O":
+        c = input("Tarjeta de que banco (C: credito, N: continental u O: otros): ")
+        c = c.upper()
+if a == "V":
+    if b == "T":
+        if c == "C":
+            print("El monto a pagar es 2000")
+        elif c == "N":
+            print("El monto a pagar es 1900")
+        else:
+            print("El monto a pagar es 2100")
+    else:
+        print("El monto a pagar es 1500")
+if a == "P":
+    if b == "T":
+        if c == "C":
+            print("El monto a pagar es 950")
+        elif c == "N":
+            print("El monto a pagar es 875")
+        else:
+            print("El monto a pagar es 1020")
+    else:
+        print("El monto a pagar es 750")
+if a == "O":
+    if b == "T":
+        if c == "C":
+            print("El monto a pagar es 320")
+        elif c == "N":
+            print("El monto a pagar es 300")
+        else:
+            print("El monto a pagar es 335")
+    else:
+        print("El monto a pagar es 265")
+

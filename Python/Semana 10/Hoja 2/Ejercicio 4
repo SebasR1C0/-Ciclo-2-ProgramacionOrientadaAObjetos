@@ -1,0 +1,18 @@
+import math as m
+a = b = c = -1
+conta = 0
+while a<0:
+    a = float(input("Ingrese el valor de A: "))
+while b<0:
+    b = float(input("IIngrese el valor de B: "))
+while c<0:
+    c = float(input("Ingrese el valor de C: "))
+dis = (b**2) - 4*a*c
+print(dis)
+if dis < 0:
+    print("SON RAICES COMPLEJAS")
+else: 
+    x1 = (-b + m.sqrt(dis))/(2*a)
+    x2 = (-b - m.sqrt(dis))/(2*a)
+    print("Raiz 1: ",round(x1,2))
+    print("Raiz 2: ",round(x2,2))

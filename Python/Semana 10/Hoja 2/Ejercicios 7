@@ -1,0 +1,35 @@
+a = mf = mc = hf = hc = 0
+while a>9999999999999999 or a<1000000000000000:
+    a = int(input("Ingrese codigo: "))
+p1 = a//1000000000000
+h1 = (a//10000000000)%100
+m1 = (a//100000000)%100
+p2 = (a//10000)%10000
+h2 = (a//100)%100
+m2 = a%100
+if p1 == 6769:
+    hc += h1
+    mc += m1
+if p1 == 7073:
+    hf += h1
+    mf += m1
+if p2 == 6769:
+    hc += h2
+    mc += m2
+if p2 == 7073:
+    hf += h2
+    mf += m2
+montof = round(0.15*mf + 0.15*hf*60,2)
+montoc = round(0.35*mc + 0.35*hc*60,2)
+if montof > montoc:
+    max = "F"
+if montof < montoc:
+    max = "C"
+if montof == montoc:
+    max = "F y C"
+print("Cantidad de horas a Fijo:", hf)
+print("Cantidad de minutos a Fijo:", mf)
+print("Cantidad de horas a Celular:", hc)
+print("Cantidad de minutos a Celular:", mc)
+print("Monto a pagar por el consumo:", montof + montoc)
+print("El mayor gasto lo tuvo al realizar llamadas a (F: fijo; C: celular):", max)

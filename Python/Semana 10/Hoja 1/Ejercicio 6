@@ -1,0 +1,27 @@
+n = 1
+conta = 0
+may = -100
+men = 100
+pos = 0
+nega = 0
+promedio = 0
+while n != 0:
+    n = int(input("Ingrese un numero: "))
+    conta+=1
+    promedio += n
+    if n!=0:
+        if may < n:
+            may = n
+        if men > n:
+            men = n
+        if n < 0:
+            nega+=1
+        if n>0:
+            pos+=1
+print("\t")
+print("Numeros Leidos =", conta)
+print("Numero Mayor =", may)
+print("Numero Menor =", men)
+print("Numeros Positivos =", pos)
+print("Numeros Negativos =", nega)
+print("Promedio =", round(promedio/conta,2))

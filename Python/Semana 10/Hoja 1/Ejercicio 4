@@ -1,0 +1,9 @@
+n = 0
+while n <1:
+    n = int(input("Ingrese N: "))
+for i in range(1,n+1):
+    ef = float(input(f"Ingrese el EF del Alumno {i}: "))
+    ep = float(input(f"Ingrese el EP del Alumno {i}: "))
+    tf = float(input(f"Ingrese el TF del Alumno {i}: "))
+    print("Su promedio final es:", round((ef*55/100)+(ep*30/100)+(tf*15/100),2))
+    print("\t")

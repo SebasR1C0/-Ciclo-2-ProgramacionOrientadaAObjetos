@@ -1,0 +1,11 @@
+n = 0
+deno = 0.5
+av = -1
+suma = 0
+while n < 1:
+    n = int(input("Ingrese un numero: "))
+for i in range(1,n+1):
+    deno *= 2
+    av *= -1
+    suma += av/deno
+print("Suma =", round(suma,2))

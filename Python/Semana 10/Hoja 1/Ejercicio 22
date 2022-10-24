@@ -1,0 +1,11 @@
+n = 0
+while n <1:
+    n = int(input("Ingrese el valor de n: "))
+for i in range(0,n+1):
+    for j in range(0,i):
+        if i == 0 or j == 0 or i == n or j == i-1:
+            print("*",end=" ")
+        else: 
+            print(" ",end=" ")
+    print("")
+    

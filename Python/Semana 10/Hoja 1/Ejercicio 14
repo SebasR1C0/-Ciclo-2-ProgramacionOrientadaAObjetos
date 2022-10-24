@@ -1,0 +1,10 @@
+n = 0
+def factorial(n):
+    fac = 1
+    for j in range(1,n+1):
+        fac*=j
+    return fac
+while n <1:
+    n = int(input("Ingrese un numero: "))
+fac = factorial(n)
+print("El factorial es:", fac)

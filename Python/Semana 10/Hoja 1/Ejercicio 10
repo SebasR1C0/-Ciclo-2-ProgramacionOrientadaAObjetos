@@ -1,0 +1,12 @@
+n = 1
+while n != 0:
+    suma = 0
+    n = int(input("Ingrese un numero (coloque 0 para finalizar): "))
+    for i in range(1,n):
+        if n%i==0:
+            suma+=i
+    if n == suma:
+        print("Es perfeto")
+    else: 
+        print("No es perfecto")
+    print("\t")

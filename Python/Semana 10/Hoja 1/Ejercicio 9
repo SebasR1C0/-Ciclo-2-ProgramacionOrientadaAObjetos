@@ -1,0 +1,9 @@
+numero=0
+while numero<1:
+    numero=int(input("Ingrese numero positivo: "))
+numinvertido = 0
+while numero > 0:
+    digito = numero % 10
+    numinvertido = numinvertido * 10 + digito
+    numero =numero // 10
+print("Numero invertido = ",numinvertido)

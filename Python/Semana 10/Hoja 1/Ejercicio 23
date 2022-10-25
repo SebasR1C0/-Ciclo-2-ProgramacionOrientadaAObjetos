@@ -1,0 +1,13 @@
+n = 0
+def espacio(i,n):
+    for j in range(1,n+1-i):
+        print("  ", end="")
+while n <1:
+    n = int(input("Ingrese el valor de n: "))
+for i in range(1,n+1):
+    espacio(i,n)
+    for j in range(1,i+1):
+        print(j,end=" ")
+    for j in range(i,1,-1):
+        print(j-1,end=" ")
+    print("")

@@ -1,0 +1,11 @@
+def figo(n):
+  primero = 0
+  segundo = 1
+  for k in range(n):
+    tercero = primero+segundo
+    primero = segundo
+    segundo = tercero
+    print(primero, end=', ')
+n=int(input("Ingrese n: "))
+figo(n)
+print("\n")

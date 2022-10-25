@@ -1,0 +1,15 @@
+n = suma = 0
+abc = -1
+def factorial(n):
+    fac = 1
+    for j in range(1,n+1):
+        fac*=j
+    return fac
+while n <1:
+    n = int(input("Ingrese el valor de n: "))
+for i in range(1,n+1):
+    expo = i
+    abc *=-1
+    fac=factorial(i)
+    suma+= abc*expo/fac
+print("La suma es:", round(suma,2))

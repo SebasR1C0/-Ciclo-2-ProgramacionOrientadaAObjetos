@@ -1,0 +1,26 @@
+def cuenta_rangos(lista):
+  contmenos40 = cont40y50 = cont50y60 = contmas60 = 0
+  for peso in lista:
+    if peso < 40:
+        contmenos40 = contmenos40 + 1
+    elif peso <= 50:
+        cont40y50 = cont40y50 + 1
+    elif peso < 60:
+        cont50y60 = cont50y60 + 1
+    else:
+        contmas60 = contmas60 + 1
+  print("Menos de 40=",contmenos40)
+  print("Entre 40 y 50=",cont40y50)
+  print("Entre 50 y 60=",cont50y60)
+  print("60 o mas=",contmas60)
+lista_pesos=[]
+n5=0
+while n5<1 or n5>50:
+    n5=int(input("Ingrese cantidad de alumnos: "))
+for i in range(n5):
+    peso=0
+    while peso<1:
+      peso=float(input("Ingrese peso: "))
+    lista_pesos.append(peso)
+lista_pesos
+cuenta_rangos(lista_pesos)

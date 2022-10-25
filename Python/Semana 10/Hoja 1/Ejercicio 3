@@ -1,0 +1,9 @@
+def calcula_cuadrado(n3):
+  suma=0
+  impar=1
+  for i in range(n3):
+    suma=suma+impar
+    impar=impar+2
+  print ("el cuadrado es : ",suma)
+n3=int(input("ingrese n : "))
+calcula_cuadrado(n3)

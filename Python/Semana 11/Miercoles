@@ -1,0 +1,44 @@
+#dic1 = {"Nombre" : "Sara Olivares", "Edad":27, "DNI":10101010}
+#
+#print("Diccionario Completo: " + str(dic1))
+#print("Claves: " + str(dic1.keys()))
+#print("Valor: " + str(dic1.values()))
+#
+print("Impresion de Datos de Diccionario ---------------- ")
+futbo = {1: "Casillas", 2: "Pique",3: "Puyol", 4: "Ramos", 16: "Busquet",
+         6: "Xavi Alonso", 7: "Xavi Hernandez", 8:"Iniesta", 11:"David Villa"}
+numElem = len(futbo)
+print("El numero de Elementos del Diccionario es: " + str(numElem))
+for k,v in futbo.items():
+    print("%s -> %s" %(k,v))
+
+import random as r
+clientes = ["Hellen", "Sisi", "Dora", "Mariela" , "Yanira", "Veronica", "Liz"]
+dic = {cliente:r.randint(1,10) for cliente in clientes}
+print(dic)
+
+prueba_dep = {"Andre":500,"Victor":600,"Alejandro":800,"Emmanuel":600,"Cristian":750,"Roberto":900}
+nota = prueba_dep
+print("Keys - " + str(nota["Alejandro"]))
+print("Keys - " + str(nota["Andre"]))
+
+monedas = {"Euro":1,"Dollar":2,"Yen":3}
+moneda = input("Introducce una divisa a buscar: ")
+print("Su simbolo - ",monedas.get(moneda.title(),"La Divisa NO existe!!!"))
+
+moneda = input("Introducce una divisa a buscar: ")
+if moneda.title() in moneda:
+  print("Su simbolo - ",monedas[moneda.title()])
+else:
+  print("La Divisa NO EXISTE")
+  
+  persona = {}
+continuar = True
+while continuar:
+    clave = input("Que dato desea ingresar: ")
+    clave = clave.title()
+    valor = input(clave+": ")
+    persona[clave] = valor
+    print(persona)
+    continuar = input("Quiere añadir más información(S/N): ").upper() == "S"
+print(persona)

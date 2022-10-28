@@ -1,0 +1,43 @@
+import os as o
+import time as t
+def op1():
+    codigo = input("Ingrese Codigo del Cliente: ")
+    nombre = input("Ingrese Nombre del Cliente: ")
+    direccion = input("Ingrese Direccion del Cliente: ")
+    telefono = input("Ingrese Telefono del Cliente: ")
+    email = input("Ingrese Email del Cliente: ")
+    vip =  input("Es un cliente Preferente(S/N): ")
+    vip = vip.upper()
+    vdic_cliente = {'Nombre': nombre, 'Direccion': direccion, 'Telefono': telefono, 
+                    'Email': email, 'Vip': vip =='S'}
+    clientes[codigo] = vdic_cliente
+clientes = {}
+opcion = ' '
+while opcion != '6':
+    if opcion == '1':
+        op1()
+    if opcion == '2':
+        var_codigo = input("Ingrese Codigo a Eliminar: ")
+        if var_codigo in clientes: 
+            del clientes[var_codigo]
+            print("Se elimino Correctamente el Cliente", var_codigo)
+        else:
+            print("No existe el codigo del Cliente Ingresado!!!")
+    if opcion == '3':
+        var_codigo = input("Ingrese Codigo del Cliente a Consultar: ")
+        print("Consulta Cliente", var_codigo)
+        for codigo,valor in clientes.items():
+            print("Codigo: " + codigo,"\nNombre: " + valor["Nombre"] + " - " + "\nDireccion: " + valor["Direccion"])
+    if opcion=='4':
+        print("----- Listado de Clientes -----")
+        for codigo, valor in clientes.items():
+            print(codigo," - " + valor['Nombre']+" - "+valor['Direccion']+" - "+valor['Telefono'])
+    if opcion=='5':
+        print("-----Listado de clientes Vip------")
+        for codigo, valor in clientes.items():
+            if valor['Vip']:
+                print(codigo," - " + valor['Nombre']+" - "+valor['Direccion']+" - "+valor['Telefono'])
+    t.sleep(1)
+    o.system("cls")
+    opcion = input("Menu Cliente\n(1)Ingreso\n(2)Eliminar\n(3)Consultar\n(4)Listar\n(5)Listar Vip\n(6)Terminar\nElige una Opcion: ")
+print("Final del Matenimiento CLIENTES!!!!!!!!")

@@ -1,0 +1,18 @@
+compra = list() #Declarando una lista
+total = 0
+while True:
+ producto = input("Que producto desea Ingresar: ")
+ cantidad = int(input("Que cantidad desea comprar: "))
+ precio = float(input("Que precio tiene el producto: "))
+ total = total + (cantidad * precio)#calculando el total de la compra a pagar
+ persona = {'Producto':producto,'Cantidad':cantidad,'Precio':precio} #Genera el diccionario persona
+ continuar = input("¿Desea seguir comprando? [S: SI o N: NO]: ")
+ compra.append(persona)#en la Lista(compra) adiciono como 1 solo registro -> el reg del diccionario de datos
+ if continuar == 'N':
+  break;
+print("Productos Comprados:------------ ")
+NroReg =1
+for i in compra:#recorriendo la lista(compra) de valores
+ print(NroReg, "- Producto: ",i['Producto'], " - Cantidad: ",i['Cantidad']," - Precio: ",i['Precio'])
+ NroReg =NroReg +1
+print("El TOTAL es ", total

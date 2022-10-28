@@ -1,0 +1,4 @@
+import os as o
+import time as t
+t.sleep(1)
+    o.system("cls")

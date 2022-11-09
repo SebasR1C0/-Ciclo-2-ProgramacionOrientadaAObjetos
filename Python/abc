@@ -1,0 +1,70 @@
+import os as o
+import time as t
+ingreso = {}
+ventas = {}
+opcion = ' '
+while opcion != '4':
+    if opcion == '1':
+        cantidad = precio = 0
+        nombre = input("Ingrese el nombre del producto: ")
+        nombre =  nombre.title()
+        while cantidad<1:
+            cantidad = int(input("Ingrese la cantidad de que quiere ingresar: "))
+        while precio<1:
+            precio = float(input("Ingrese el precio del producto: "))
+        if nombre in ingreso:
+            for codigo,valor in ingreso.items():
+                if codigo == nombre:
+                    c1= valor['Cantidad']
+            final = {nombre: {'Cantidad': cantidad + c1, 'Precio': precio}}
+            ingreso.update(final)
+        else:
+            final = {'Cantidad': cantidad, 'Precio': precio}
+            ingreso[nombre] = final
+    if opcion == '2':
+        cantidad = precio = 0
+        cod = input("Ingrese el producto que quiere comprar: ")
+        cod = cod.title()
+        if cod in ingreso:
+            for codigo,valor in ingreso.items():
+                if codigo == cod:
+                    c1= valor['Cantidad']
+                    p1 = valor['Precio']
+        if cod in ventas:
+            for codigo,valor in ventas.items():
+                if codigo == cod:
+                    c2= valor['Cantidad']
+                    pf =valor['Ganancia']
+        if cod in ingreso: 
+            while cantidad<1:
+                cantidad = int(input("Ingrese la cantidad que quiere comprar: "))
+            if c1 >= cantidad:
+                while precio<1:
+                    precio = float(input("Ingrese el precio del producto: "))
+                final = {cod: {'Cantidad': c1 - cantidad, 'Precio': p1}}
+                ingreso.update(final)
+                if cod in ventas:
+                    abc = cantidad*precio+pf
+                    fventas = {cod: {'Cantidad': c2 +cantidad, 'Precio': precio, 'Ganancia': abc}}
+                    ventas.update(final)
+                else:
+                    abc = cantidad*precio
+                    fventas = {'Cantidad': cantidad, 'Precio': precio, 'Ganancia': abc}
+                    ventas[cod] = fventas
+            else: 
+                print("En el stock no se encuentra esa cantidad")
+        else:
+            print("No existe ese producto en el stock")
+    if opcion == '3':
+        total = 0
+        for pro,valor in ventas.items():
+            total += valor["Ganancia"]
+            print(str(pro), " - " + str(valor["Cantidad"]) + " - "+ str(valor["Precio"])+ " ----> " + str(valor["Ganancia"]))
+        print("\nSubtotal ---->", total)
+        print("IGV ---->", total*18/100)
+        print("Total ---->", total*118/100)
+        t.sleep(1)
+    t.sleep(1)
+    o.system("cls")
+    opcion = input("Menu Cliente\n(1)Ingreso de Producto\n(2)Ingreso de Venta\n(3)Lista de Productos Vendidos\n(4)Salir\nElige una Opcion: ")
+print("Final del Matenimiento")

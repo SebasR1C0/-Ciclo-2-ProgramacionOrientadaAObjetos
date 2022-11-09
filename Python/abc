@@ -1,4 +1,4 @@
-import os as o
+impoimport os as o
 import time as t
 ingreso = {}
 ventas = {}
@@ -44,9 +44,9 @@ while opcion != '4':
                 final = {cod: {'Cantidad': c1 - cantidad, 'Precio': p1}}
                 ingreso.update(final)
                 if cod in ventas:
-                    abc = cantidad*precio+pf
+                    abc = cantidad*precio + pf
                     fventas = {cod: {'Cantidad': c2 +cantidad, 'Precio': precio, 'Ganancia': abc}}
-                    ventas.update(final)
+                    ventas.update(fventas)
                 else:
                     abc = cantidad*precio
                     fventas = {'Cantidad': cantidad, 'Precio': precio, 'Ganancia': abc}
@@ -58,7 +58,7 @@ while opcion != '4':
     if opcion == '3':
         total = 0
         for pro,valor in ventas.items():
-            total += valor["Ganancia"]
+            total = total + float(valor["Ganancia"])
             print(str(pro), " - " + str(valor["Cantidad"]) + " - "+ str(valor["Precio"])+ " ----> " + str(valor["Ganancia"]))
         print("\nSubtotal ---->", total)
         print("IGV ---->", total*18/100)

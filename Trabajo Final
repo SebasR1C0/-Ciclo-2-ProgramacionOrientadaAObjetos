@@ -1,0 +1,20 @@
+import os as o
+o.system('mode 120,40')
+def marco():
+    for i in range(40):
+        for j in range(120):
+            if i == 3 and j == 3:
+                print('╔',end='')
+            elif i == 3 and j == 117:
+                print('╗',end='')
+            elif i == 37 and j == 3:
+                print('╚',end='')
+            elif i == 37 and j == 117:
+                print('╝',end='')
+            elif (i==3 or i==37) and (j > 3 and j < 117):
+                print('═',end='')
+            elif (j==3 or j==117) and (i > 3 and i < 37):
+                print('║',end='')
+            else:
+                print(' ',end='')
+marco()

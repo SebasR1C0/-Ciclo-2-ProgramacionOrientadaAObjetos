@@ -1,0 +1,142 @@
+import tkinter
+from tkinter import *
+import csv
+import pandas as pd
+import matplotlib.pyplot as plt
+DATA=pd.read_csv('C:/Users/Usuario/source/repos/Pytho/DATAC.csv', index_col=0, sep=';', encoding='latin-1')
+
+def muerte():
+    Muertos=list(DATA['Dead'])
+    vivo=0.0
+    novivo=0.0
+    for i in Muertos:
+        if Muertos[i]==False:
+            novivo+=1
+        else:
+            vivo+=1
+
+    y=['Vivo', 'Muertos']
+    x=[vivo, novivo]
+    plt.pie(x,labels=y, autopct="%0.1f %%")
+    plt.title("Sondeo de personas vivas y muertas en la actualidad después de Covid-19")
+    plt.axis("equal")
+    plt.show()
+
+def personasconCovid():
+    Coronavirus=list(DATA['Covid'])
+    con=0
+    sin=0
+    for i in range(2000):
+        if Coronavirus[i]==True:
+            con+=1
+        else:
+            sin+=1
+    x=['No tienen Covid19', 'Personas contagiadas']
+    y=[sin, con]
+    fig, ax=plt.subplots()
+    ax.bar(x, y, color="green")
+    plt.title("Sondeo de personas contagiadas en la actualidad")
+    plt.show()
+    
+def GENDER():
+    Genero=list(DATA['Gender'])
+    mujer=0
+    hombre=0
+    for i in range(2000):
+        if Genero[i]=="Male":
+            hombre+=1
+        else:
+            mujer+=1
+    X=['Mujer', 'Hombre']
+    Y=[mujer, hombre]
+    plt.bar(X,Y, color="cyan")
+    plt.title("Estadisticas de genero de las personas infectadas")
+    plt.show()
+
+def Vecesdecontagio():
+    VECES=list(DATA['Timesinfected'])
+    suma=sum(VECES)
+    print(f"El promedio de veces que han tenido Covid esta muestra de personas es de {suma/2000}")
+    fig,ax=plt.subplots()
+    one=0
+    two=0
+    three=0
+    four=0
+    five=0
+    six=0
+    seven=0
+    eight=0
+    nine=0
+    ten=0
+    total=2000
+    for i in range(total):
+        if VECES[i]==1:
+            one+=1
+        elif VECES[i]==2:
+            two+=1
+        elif VECES[i]==3:
+            three+=1
+        elif VECES[i]==4:
+            four+=1
+        elif VECES[i]==5:
+            five+=1
+        elif VECES[i]==6:
+            six+=1
+        elif VECES[i]==7:
+            seven+=1
+        elif VECES[i]==8:
+            eight+=1
+        elif VECES[i]==9:
+            nine+=1
+        elif VECES[i]==10:
+            ten+=1
+
+
+    A=[1,2,3,4,5,6,7,8,9,10]
+    B=[one, two, three, four, five, six, seven, eight, nine, ten]
+    maximo=max(B)
+    ax.fill_between(A, B, color="magenta")
+    plt.title('Numero de veces que han tenido covid-19')
+    plt.show()
+    print(f"La moda de esta gráfica es {maximo}")
+
+root = Tk()
+root.title("iPandemic ")
+marco = LabelFrame(root, text="Lista de opciones\n1)Sondeo de personas vivas y muertas\n2)Sondeo de personas contagiadas\n3)Estadisticas de genero de las personas infectadas\n4)Numero de veces que han tenido covid-19",)
+marco.pack()
+entrada = Entry(marco, 
+                border=5,
+                width=45
+                )
+entrada.pack()
+entrada.insert(0,"Elige una opcion")
+entrada.bind("<Button-1>", lambda e: entrada.delete(0, tkinter.END))
+def enviar():
+    op = entrada.get() 
+    entrada.delete(0, tkinter.END)
+    entrada.insert(0,"Elige una opcion")
+    if op == '1':
+        muerte()
+    elif op == '2':
+        personasconCovid()
+    elif op == '3':
+        GENDER()
+    elif op == '4':
+        Vecesdecontagio()
+    else:
+        entrada.delete(0, tkinter.END)
+        entrada.insert(0,"Opcion incorrecta")
+
+boton = Button(marco, 
+                text="Enviar", 
+                command=enviar,
+                border=3,
+                width=26
+                ).pack()
+boton = Button(marco, 
+                text="Salir", 
+                command=root.destroy,
+                border=3,
+                width=26
+                ).pack()
+root.mainloop()

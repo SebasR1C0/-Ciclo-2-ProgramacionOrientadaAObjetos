@@ -3,6 +3,7 @@ from tkinter import *
 import csv
 import pandas as pd
 import matplotlib.pyplot as plt
+#Cambiar direccion
 DATA=pd.read_csv('C:/Users/Usuario/source/repos/Pytho/DATAC.csv', index_col=0, sep=';', encoding='latin-1')
 
 def muerte():
@@ -102,6 +103,7 @@ def Vecesdecontagio():
 
 root1 = Tk() 
 root1.geometry("1260x678") 
+#Cambiar direccion
 bg = PhotoImage(file = 'C:/Users/Usuario/source/repos/Pytho/iPandemic.png') 
 canvas1 = Canvas( root1, width =100, 
                  height = 100) 
@@ -154,3 +156,5 @@ boton = Button(marco,
                 ).pack()
 root1.mainloop()
 root.mainloop()
+print("La aplicacion ha finalizado!!!!!!!!!!!!!!!!")
+print("Espero que le haya gustado")

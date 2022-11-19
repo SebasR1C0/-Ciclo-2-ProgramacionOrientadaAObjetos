@@ -68,3 +68,46 @@ while opcion != '4':
     o.system("cls")
     opcion = input("Menu Cliente\n(1)Ingreso de Producto\n(2)Ingreso de Venta\n(3)Lista de Productos Vendidos\n(4)Salir\nElige una Opcion: ")
 print("Final del Matenimiento")
+
+
+import tkinter
+root = Tk()
+root.title("iPandemic ")
+marco = LabelFrame(root, text="Lista de opciones\n1)Sondeo de personas vivas y muertas\n2)Sondeo de personas contagiadas\n3)Estadisticas de genero de las personas infectadas\n4)Numero de veces que han tenido covid-19",)
+marco.pack()
+entrada = Entry(marco, 
+                border=5,
+                width=45
+                )
+entrada.pack()
+entrada.insert(0,"Elige una opcion")
+entrada.bind("<Button-1>", lambda e: entrada.delete(0, tkinter.END))
+def enviar():
+    op = entrada.get() 
+    entrada.delete(0, tkinter.END)
+    entrada.insert(0,"Elige una opcion")
+    if op == '1':
+        print("Sondeo de personas vivas y muertas")
+    elif op == '2':
+        print("Sondeo de personas contagiadas")
+    elif op == '3':
+        print("Sondeo de personas vivas y muertas")
+    elif op == '4':
+        print("Sondeo de personas vivas y muertas")
+    else:
+        entrada.delete(0, tkinter.END)
+        entrada.insert(0,"Opcion incorrecta")
+
+boton = Button(marco, 
+                text="Enviar", 
+                command=enviar,
+                border=3,
+                width=26
+                ).pack()
+boton = Button(marco, 
+                text="Salir", 
+                command=root.destroy,
+                border=3,
+                width=26
+                ).pack()
+root.mainloop()

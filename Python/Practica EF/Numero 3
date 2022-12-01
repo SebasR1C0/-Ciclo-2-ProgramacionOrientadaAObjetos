@@ -1,16 +1,15 @@
-import random as r 
-
-class CEncuesta: 
-    def __init__ (self):
+import random as r
+class CEncuestas:
+    def __init__(self):
         self.__edad = 0
         self.__sexo = 'F'
         self.__prueba = 'R'
-        self.__satisfaccion = 'B'
-    def __init__ (self, edad, sexo, prueba, satisfaccion):
+        self.__satis = 'B'
+    def __init__(self, edad, sexo, prueba, satis):
         self.__edad = edad
         self.__sexo = sexo
         self.__prueba = prueba
-        self.__satisfaccion = satisfaccion
+        self.__satis = satis
 
     def getEdad(self) : 
         return self.__edad 
@@ -18,8 +17,8 @@ class CEncuesta:
         return self.__sexo                                      
     def getPrueba(self) :                                       
         return self.__prueba                                    
-    def getSatisfaccion(self) :                                 
-       return self.__satisfaccion                               
+    def getSatis(self) :                                 
+       return self.__satis                               
                                                                 
     def setEdad(self, edad ) :                                  
         self.__edad = edad                                     
@@ -27,43 +26,40 @@ class CEncuesta:
         self.__sexo = sexo                                     
     def setPrueba(self, prueba) : 
         self.__prueba = prueba
-    def setSatisfaccion(self, satisfaccion) :  
-        self.__satisfaccion = satisfaccion
+    def setSatis(self, satis) :  
+        self.__satis = satis
 
     def consultarEncuesta(self):
         print(f"{self.__edad}\t{self.__sexo}\t{self.__prueba}\t{self.__satisfaccion}")
-
-
 def generar(n):
     lista = []
     auxsexo = ['F', 'M']
     auxprueba = ['R', 'H', 'C']
-    auxsatisfaccion = ['R', 'B', 'M']
+    auxsatis = ['R', 'B', 'M']
     for i in range(n):
         edad = r.randint(18, 75)
         sexo = auxsexo[r.randint(0, 1)]
         prueba = auxprueba[r.randint(0, 2)]
-        satisfaccion = auxsatisfaccion[r.randint(0, 2)]
-        lista.append(CEncuesta(edad, sexo, prueba, satisfaccion))
+        satis = auxsatis[r.randint(0, 2)]
+        lista.append(CEncuestas(edad, sexo, prueba, satis))
     return lista
 def mostrar(encuestados):
     for persona in encuestados:
         persona.consultarEncuesta()
-
-def determinarCantidadAdultosMayores(encuestados):
+def mayor(encuestados):
     cont = 0
     for persona in encuestados:
         if persona.getEdad() > 60:
-            cont += 1
+            cont +=1
     print("Cantidad adultos mayores : ", cont)
-def determinarPromedioEdadCovid(encuestados):
-    sumEdad = cont =  0
+def promcov(encuestados):
+    cont = contt = 0
     for persona in encuestados:
         if persona.getPrueba() == 'C' :
-            sumEdad+= persona.getEdad()
+            contt+= persona.getEdad()
             cont+=1
-    print("Promedio de edades de personas que solicitaron prueba covid : ", (sumEdad / cont) if cont != 0 else 0)
-def nivelesSatisfaccionConMayorFrecuencia(encuestados):
+    print("Promedio de edades de personas que solicitaron prueba covid : ", (contt / cont) if cont != 0 else 0)
+def satisfaccion(encuestados):
     cB = cR = cM = 0
     for persona in encuestados:
         if persona.getSatisfaccion() == 'B' :
@@ -79,23 +75,22 @@ def nivelesSatisfaccionConMayorFrecuencia(encuestados):
         print("Regular")
     if cM >= cR and cM >= cB: 
         print("Malo")
-def determinarEdadMujerMasJoven(encuestados):
-    minEdad = 100
+def mujerjoven (encuestados):
     for persona in encuestados:
+        minedad = 100
         if persona.getSexo() == 'F' and persona.getPrueba() != 'C':
-            if minEdad > persona.getEdad():
-                minEdad = persona.getEdad()
-    if minEdad == 100:
+            if minedad > persona.getEdad():
+                minedad = persona.getEdad()
+    if minedad == 100:
         print("No se encontro mujer joven con las caracteristicas especificas")
     else:
-        print("La minima edad de la mujer joven es : ", minEdad)
-
-n = -1
-while not(n > 0 and n <= 40):
-    n = int(input("Ingrese n : "))
+        print("La minima edad de la mujer joven es : ", minedad)
+n=-1
+while n<1 or n>40:
+    n = int(input("Ingrese el valor de n"))
 encuestados = generar(n)
 mostrar(encuestados)
-determinarCantidadAdultosMayores(encuestados)
-determinarPromedioEdadCovid(encuestados)
-nivelesSatisfaccionConMayorFrecuencia(encuestados)
-determinarEdadMujerMasJoven(encuestados)
+mayor(encuestados)
+promcov(encuestados)
+satisfaccion(encuestados)
+mujerjoven(encuestados)

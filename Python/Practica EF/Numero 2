@@ -1,27 +1,24 @@
-import random as r 
-lista = []
+import random as r
 def generar(n):
+    lista = []
     for i in range(n):
-        lista.append(chr(r.randint(65, 90)))
+        lista.append(chr(r.randint(65,90)))
     return lista
-
-def esVocal(letra):
+def vocal(letra):
     return letra in 'AEIOU'
-
-def analizarAlternoAscendente(caracteres):
-    for i in range(len(caracteres) - 6):
-       if (esVocal(caracteres[i]) and esVocal(caracteres[i + 2]) and esVocal(caracteres[i + 4]) 
-        and esVocal(caracteres[i + 6]) and caracteres[i] < caracteres[i + 2] and 
-        caracteres[i + 2] < caracteres[i + 4] and caracteres[i + 4] < caracteres[i + 6]):
+def analizaralternos(caracter):
+    for i in range(len(caracter)-6):
+        if (vocal(caracter[i]) and vocal(caracter[i + 2]) and vocal(caracter[i + 4]) 
+        and vocal(caracter[i + 6]) and caracter[i] < caracter[i + 2] and 
+        caracter[i + 2] < caracter[i + 4] and caracter[i + 4] < caracter[i + 6]):
            print("Se encontro 4 vocales alternas y ascendentes")
-def ordenarPosicionImpar(caracteres):
-    print(caracteres)
-    caracteres[1::2] = sorted(caracteres[1::2], reverse = True)
-    print(caracteres)
+def inter(caracter):
+    print(caracter)
+    caracter[1::2] = sorted(caracter[1::2], reverse=True)
+    print(caracter)
 n = -1
-while not(n > 0 and n <= 50):
-    n = int(input("Ingrese n : "))
-
-caracteres = generar(n)
-analizarAlternoAscendente(caracteres)
-ordenarPosicionImpar(caracteres)
+while n<6 or n>50:
+    n = int(input("Ingrese el valor de n: "))
+caracter = generar(n)
+analizaralternos(caracter)
+inter(caracter)

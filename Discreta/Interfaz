@@ -1,0 +1,57 @@
+import tkinter
+from tkinter import *
+
+root1 = Tk() 
+root1.geometry("1250x630") 
+bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/iClima.png') 
+canvas1 = Canvas( root1, width =100, 
+                 height = 100) 
+canvas1.pack(fill = "both", expand = True) 
+canvas1.create_image( 0, 0, image = bg,  
+                     anchor = "nw") 
+button1 = Button( root1, command=root1.destroy,text = "Continuar") 
+button1_canvas = canvas1.create_window( 630, 500,  
+                                       anchor = "nw", 
+                                       window = button1)  
+
+root = Tk()
+root.title("iClima ")
+marco = LabelFrame(root, text="Lista de opciones\n1)Extraer Base de Datos\n2)Datos aleatorios",)
+marco.pack()
+entrada = Entry(marco, 
+                border=5,
+                width=45
+                )
+entrada.pack()
+entrada.insert(0,"Elige una opcion")
+entrada.bind("<Button-1>", lambda e: entrada.delete(0, tkinter.END))
+def enviar():
+    op = entrada.get() 
+    entrada.delete(0, tkinter.END)
+    entrada.insert(0,"Elige una opcion")
+    if op == '1':
+        entrada.delete(0, tkinter.END)
+        entrada.insert(0,"Opcion incorrecta")
+    elif op == '2':
+        entrada.delete(0, tkinter.END)
+        entrada.insert(0,"Opcion incorrecta")
+    else:
+        entrada.delete(0, tkinter.END)
+        entrada.insert(0,"Opcion incorrecta")
+
+boton = Button(marco, 
+                text="Enviar", 
+                command=enviar,
+                border=3,
+                width=26
+                ).pack()
+boton = Button(marco, 
+                text="Salir", 
+                command=root.destroy,
+                border=3,
+                width=26
+                ).pack()
+root1.mainloop()
+root.mainloop()
+print("La aplicacion ha finalizado!!!!!!!!!!!!!!!!")
+print("Espero que le haya gustado")

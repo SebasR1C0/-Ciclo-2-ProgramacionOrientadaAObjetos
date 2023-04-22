@@ -105,16 +105,20 @@ for i in range(4):
     root1.geometry("1250x630") 
     if actual == "soleado":
         temp = r.randint(27, 30)
-        bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/iClima.png')
+        #Cambiar direccion
+        bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/Soleado.png')
     elif actual == "parcialmente soleado":
         temp = r.randint(24, 26)
-        bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/iClima.png')
+        #Cambiar direccion
+        bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/ParcialmenteSoleado.png')
     elif actual == "parcialmente nublado":
         temp = r.randint(21, 23)
-        bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/iClima.png')
+        #Cambiar direccion
+        bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/ParcialmenteNublado.png')
     elif actual == "nublado":
         temp = r.randint(17, 20)
-        bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/iClima.png') 
+        #Cambiar direccion
+        bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/Nublado.png') 
     canvas1 = Canvas( root1, width =100, 
                      height = 100) 
     canvas1.pack(fill = "both", expand = True) 

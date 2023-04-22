@@ -1,6 +1,6 @@
 import tkinter
 from tkinter import *
-
+valor = ["abc"]
 root1 = Tk() 
 root1.geometry("1250x630") 
 bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/iClima.png') 
@@ -30,13 +30,11 @@ def enviar():
     entrada.delete(0, tkinter.END)
     entrada.insert(0,"Elige una opcion")
     if op == '1':
-        root2.mainloop()
-        op = entrada2.get()
-        print(op)
+        valor[0] = op
+        botonnum()
     elif op == '2':
-        root2.mainloop()
-        op = entrada2.get()
-        print(op)
+        valor[0] = op
+        botonnum()
     else:
         entrada.delete(0, tkinter.END)
         entrada.insert(0,"Opcion incorrecta")
@@ -52,40 +50,41 @@ boton = Button(marco,
                 border=3,
                 width=26
                 ).pack()
-root2 = Tk()
-root2.title("iClima ")
-marco2 = LabelFrame(root2, text="Elige el numero de dias",)
-marco2.pack()
-entrada2 = Entry(marco2, 
-                border=5,
-                width=45
-                )
-entrada2.pack()
-entrada2.insert(0,"Elige una opcion")
-entrada2.bind("<Button-1>", lambda e: entrada.delete(0, tkinter.END))
-def numero():
-    op = entrada2.get() 
-    entrada2.delete(0, tkinter.END)
+def botonnum():
+    root2 = Tk()
+    root2.title("iClima ")
+    marco2 = LabelFrame(root2, text="Elige el numero de dias",)
+    marco2.pack()
+    entrada2 = Entry(marco2, 
+                    border=5,
+                    width=45
+                    )
+    entrada2.pack()
     entrada2.insert(0,"Elige una opcion")
-    if 60 <= int(op) <= 90:
-        #Comienza el codigo
-        print("hola")
-    else:
+    entrada2.bind("<Button-1>", lambda e: entrada.delete(0, tkinter.END))
+    def numero():
+        op = entrada2.get() 
         entrada2.delete(0, tkinter.END)
-        entrada2.insert(0,"Opcion incorrecta")
-boton2 = Button(marco2, 
-                text="Enviar", 
-                command=numero,
-                border=3,
-                width=26
-                ).pack()
-boton2 = Button(marco2, 
-                text="Salir", 
-                command=root.destroy,
-                border=3,
-                width=26
-                ).pack()
-
+        entrada2.insert(0,"Elige una opcion")
+        if 60 <= int(op) <= 90:
+            #Comienza el codigo
+            print (valor)
+        else:
+            entrada2.delete(0, tkinter.END)
+            entrada2.insert(0,"Opcion incorrecta")
+    boton2 = Button(marco2, 
+                    text="Enviar", 
+                    command=numero,
+                    border=3,
+                    width=26
+                    ).pack()
+    boton2 = Button(marco2, 
+                    text="Salir", 
+                    command=root2.destroy,
+                    border=3,
+                    width=26
+                    ).pack()
+    
 root1.mainloop()
 root.mainloop()
 print("La aplicacion ha finalizado!!!!!!!!!!!!!!!!")

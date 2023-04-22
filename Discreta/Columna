@@ -101,8 +101,8 @@ for i in range(1):
     actual = predecir_clima(matrix, states, actual) 
 print()
 for i in range(4): 
-    root1 = Tk() 
-    root1.geometry("1250x630") 
+    nuvtemp = Tk() 
+    nuvtemp.geometry("1250x630") 
     if actual == "soleado":
         temp = r.randint(27, 30)
         #Cambiar direccion
@@ -119,18 +119,18 @@ for i in range(4):
         temp = r.randint(17, 20)
         #Cambiar direccion
         bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/Nublado.png') 
-    canvas1 = Canvas( root1, width =100, 
+    canvast = Canvas( nuvtemp, width =100, 
                      height = 100) 
-    canvas1.pack(fill = "both", expand = True) 
-    canvas1.create_image( 0, 0, image = bg,  
+    canvast.pack(fill = "both", expand = True) 
+    canvast.create_image( 0, 0, image = bg,  
                          anchor = "nw") 
-    text_label = Label(root1, text=f"Dia {i+1}", font=("Bauhaus 93", 50))
+    text_label = Label(nuvtemp, text=f"Dia {i+1}", font=("Bauhaus 93", 50))
     text_label.place(x=0, y=0)
     text_label.config(bg="White")
-    button1 = Button( root1, command=root1.destroy,text = "Continuar") 
-    button1_canvas = canvas1.create_window( 630, 500,  
+    buttont = Button( nuvtemp, command=nuvtemp.destroy,text = "Continuar") 
+    button1_canvas = canvast.create_window( 630, 500,  
                                            anchor = "nw", 
-                                           window = button1)  
-    root1.mainloop()
+                                           window = buttont)  
+    nuvtemp.mainloop()
     print("Dia", i+1, ":", actual, "\t\tTemperatura:", temp)
     actual = predecir_clima(matrix, states, actual)

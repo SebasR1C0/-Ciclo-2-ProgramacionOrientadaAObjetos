@@ -128,7 +128,7 @@ for i in range(4):
     text_label.place(x=0, y=0)
     text_label.config(bg="White")
     buttont = Button( nuvtemp, command=nuvtemp.destroy,text = "Continuar") 
-    button1_canvas = canvast.create_window( 630, 500,  
+    buttont_canvas = canvast.create_window( 630, 500,  
                                            anchor = "nw", 
                                            window = buttont)  
     nuvtemp.mainloop()

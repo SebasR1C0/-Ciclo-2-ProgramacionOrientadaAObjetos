@@ -1,22 +1,22 @@
 import tkinter
 from tkinter import *
 valor = ["abc"]
-root1 = Tk() 
-root1.geometry("1250x630") 
+comienzo = Tk() 
+comienzo.geometry("1250x630") 
 bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/iClima.png') 
-canvas1 = Canvas( root1, width =100, 
+canvas1 = Canvas( comienzo, width =100, 
                  height = 100) 
 canvas1.pack(fill = "both", expand = True) 
 canvas1.create_image( 0, 0, image = bg,  
                      anchor = "nw") 
-button1 = Button( root1, command=root1.destroy,text = "Continuar") 
+button1 = Button( comienzo, command=comienzo.destroy,text = "Continuar") 
 button1_canvas = canvas1.create_window( 630, 500,  
                                        anchor = "nw", 
                                        window = button1)  
 
-root = Tk()
-root.title("iClima ")
-marco = LabelFrame(root, text="Lista de opciones\n1)Extraer Base de Datos\n2)Datos aleatorios",)
+lopciones = Tk()
+lopciones.title("iClima ")
+marco = LabelFrame(lopciones, text="Lista de opciones\n1)Extraer Base de Datos\n2)Datos aleatorios",)
 marco.pack()
 entrada = Entry(marco, 
                 border=5,
@@ -46,14 +46,14 @@ boton = Button(marco,
                 ).pack()
 boton = Button(marco, 
                 text="Salir", 
-                command=root.destroy,
+                command=lopciones.destroy,
                 border=3,
                 width=26
                 ).pack()
 def botonnum():
-    root2 = Tk()
-    root2.title("iClima ")
-    marco2 = LabelFrame(root2, text="Elige el numero de dias",)
+    numdias = Tk()
+    numdias.title("iClima ")
+    marco2 = LabelFrame(numdias, text="Elige el numero de dias",)
     marco2.pack()
     entrada2 = Entry(marco2, 
                     border=5,
@@ -80,12 +80,12 @@ def botonnum():
                     ).pack()
     boton2 = Button(marco2, 
                     text="Salir", 
-                    command=root2.destroy,
+                    command=numdias.destroy,
                     border=3,
                     width=26
                     ).pack()
     
-root1.mainloop()
-root.mainloop()
+comienzo.mainloop()
+lopciones.mainloop()
 print("La aplicacion ha finalizado!!!!!!!!!!!!!!!!")
 print("Espero que le haya gustado")

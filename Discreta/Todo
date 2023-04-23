@@ -1,16 +1,14 @@
-import tkinter
-from tkinter import *
 import numpy as np
 import random as r 
-n = solasol = solapsol = solanub = solapnub = psolapsol = psolasol = psolanub = psolapnub = nubasol = nubapsol = nubanub = nubapnub = 0
-pnubasol = pnubapsol = pnubanub = pnubapnub = 0
-def predecir_clima(matrix, states, actual):
-        actual_idx = states.index(actual) 
-        probabilidades_transicion = matrix[actual_idx] 
-        nuevo_estado_idx = np.random.choice(len(states), p=probabilidades_transicion)
-        nuevo_estado = states[nuevo_estado_idx] 
-        return nuevo_estado
-def columna(climas,numeros,n):
+import tkinter
+from tkinter import *
+def hola(n):
+    solasol = solapsol = solanub = solapnub = psolapsol = psolasol = psolanub = psolapnub = nubasol = nubapsol = nubanub = nubapnub = 0
+    pnubasol = pnubapsol = pnubanub = pnubapnub = 0
+    while n <60 or n>90:
+        n = int(input("Ingrese el valor de n: "))
+    climas = np.random.choice(["soleado", "parcialmente soleado", "nublado", "parcialmente nublado"], size=(1, n))
+    numeros = np.random.randint(low=17, high=30, size=(1, n))
     for i in range (n): 
         valor = climas[0][i]
         if valor == "soleado":
@@ -21,46 +19,45 @@ def columna(climas,numeros,n):
             numeros[0][i] = r.randint(21, 23)
         elif valor == "nublado":
             numeros[0][i] = r.randint(17, 20)
-
+    
     for i in range (n-1):
         valor = climas[0][i]
         if valor == "soleado":
             if climas[0][i+1]== "soleado":
-                print (solasol)
-                solasol = solasol + 1 
+              solasol = solasol + 1 
             elif climas[0][i+1]=="parcialmente soleado":
-                solapsol = solapsol + 1 
+              solapsol = solapsol + 1 
             elif climas[0][i+1]=="nublado":
-                solanub = solanub + 1
+              solanub = solanub + 1
             elif climas[0][i+1]=="parcialmente nublado":
-                solapnub = solapnub + 1
+              solapnub = solapnub + 1
         elif valor == "parcialmente soleado":
             if climas[0][i+1]== "soleado":
-                psolasol = psolasol + 1 
+              psolasol = psolasol + 1 
             elif climas[0][i+1]=="parcialmente soleado":
-                psolapsol = psolapsol + 1
+              psolapsol = psolapsol + 1
             elif climas[0][i+1]=="nublado":
-                psolanub = psolanub + 1
+              psolanub = psolanub + 1
             elif climas[0][i+1]=="parcialmente nublado":
-                psolapnub = psolapnub + 1
+              psolapnub = psolapnub + 1
         elif valor == "nublado":
             if climas[0][i+1]== "soleado":
-                nubasol = nubasol + 1 
+              nubasol = psolasol + 1 
             elif climas[0][i+1]=="parcialmente soleado":
-                nubapsol = nubapsol + 1
+              nubapsol = psolapsol + 1
             elif climas[0][i+1]=="nublado":
-                nubanub = nubanub + 1
+              nubanub = psolanub + 1
             elif climas[0][i+1]=="parcialmente nublado":
-                nubapnub = nubapnub + 1
+              nubapnub = psolapnub + 1
         elif valor == "parcialmente nublado":
             if climas[0][i+1]== "soleado":
-                pnubasol = pnubasol + 1 
+              pnubasol = psolasol + 1 
             elif climas[0][i+1]=="parcialmente soleado":
-                pnubapsol = pnubapsol + 1
+              pnubapsol = psolapsol + 1
             elif climas[0][i+1]=="nublado":
-                pnubanub = pnubanub + 1
+              pnubanub = psolanub + 1
             elif climas[0][i+1]=="parcialmente nublado":
-                pnubapnub = pnubapnub + 1
+              pnubapnub = psolapnub + 1
     
     probsas = solasol/(solasol+psolasol+nubasol+pnubasol)
     probpsas=psolasol/(solasol+psolasol+nubasol+pnubasol)
@@ -92,13 +89,21 @@ def columna(climas,numeros,n):
     
     states = ['soleado', 'nublado', 'parcialmente nublado','parcialmente soleado']
     actual= climas[0][n-1]
+    
+    def predecir_clima(matrix, states, actual):
+        actual_idx = states.index(actual) 
+        probabilidades_transicion = matrix[actual_idx] 
+        nuevo_estado_idx = np.random.choice(len(states), p=probabilidades_transicion)
+        nuevo_estado = states[nuevo_estado_idx] 
+        return nuevo_estado
+    print()
     for i in range(1): 
         print("Estado Actual:", actual,"\t\tTemperatura:", numeros[0][n-1])
         actual = predecir_clima(matrix, states, actual) 
     print()
     for i in range(4): 
-        root3 = Tk() 
-        root3.geometry("1250x630") 
+        nuvtemp = Tk() 
+        nuvtemp.geometry("1250x630") 
         if actual == "soleado":
             temp = r.randint(27, 30)
             #Cambiar direccion
@@ -115,29 +120,30 @@ def columna(climas,numeros,n):
             temp = r.randint(17, 20)
             #Cambiar direccion
             bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/Nublado.png') 
-        canvas2 = Canvas( root3, width =100, 
+        canvas2 = Canvas( nuvtemp, width =100, 
                          height = 100) 
         canvas2.pack(fill = "both", expand = True) 
         canvas2.create_image( 0, 0, image = bg,  
                              anchor = "nw") 
-        text_label = Label(root3, text=f"Dia {i+1}", font=("Bauhaus 93", 50))
+        text_label = Label(nuvtemp, text=f"Dia {i+1}", font=("Bauhaus 93", 50))
         text_label.place(x=0, y=0)
         text_label.config(bg="White")
-        button2 = Button( root3, command=root3.destroy,text = "Continuar") 
-        button2_canvas2 = canvas2.create_window( 630, 500,  
+        buttont = Button( nuvtemp, command=nuvtemp.destroy,text = "Continuar") 
+        buttont_canvas = canvas2.create_window( 630, 500,  
                                                anchor = "nw", 
-                                               window = button1)  
-        root3.mainloop()
+                                               window = buttont)  
+        nuvtemp.mainloop()
         print("Dia", i+1, ":", actual, "\t\tTemperatura:", temp)
-        actual = predecir_clima(matrix, states, actual)    
-valor = ["abc"]
+        actual = predecir_clima(matrix, states, actual)
+
+valor = ["abc", "123"]
 comienzo = Tk() 
 comienzo.geometry("1250x630") 
-bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/iClima.png') 
+bg1 = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/iClima.png') 
 canvas1 = Canvas( comienzo, width =100, 
                  height = 100) 
 canvas1.pack(fill = "both", expand = True) 
-canvas1.create_image( 0, 0, image = bg,  
+canvas1.create_image( 0, 0, image = bg1,  
                      anchor = "nw") 
 button1 = Button( comienzo, command=comienzo.destroy,text = "Continuar") 
 button1_canvas = canvas1.create_window( 630, 500,  
@@ -191,20 +197,13 @@ def botonnum():
                     )
     entrada2.pack()
     entrada2.insert(0,"Elige una opcion")
-    entrada2.bind("<Button-1>", lambda e: entrada.delete(0, tkinter.END))
+    entrada2.bind("<Button-1>", lambda e: entrada2.delete(0, tkinter.END))
     def numero():
         op = entrada2.get() 
         entrada2.delete(0, tkinter.END)
         entrada2.insert(0,"Elige una opcion")
         if 60 <= int(op) <= 90:
-            if valor[0]== '2':
-                n = int(op)
-                climas = np.random.choice(["soleado", "parcialmente soleado", "nublado", "parcialmente nublado"], size=(1, n))
-                numeros = np.random.randint(low=17, high=30, size=(1, n))
-                columna(climas,numeros,n)
-                
-            else:
-                print("Falta basea de datos")
+            valor[1] = int(op)
         else:
             entrada2.delete(0, tkinter.END)
             entrada2.insert(0,"Opcion incorrecta")
@@ -223,5 +222,7 @@ def botonnum():
     
 comienzo.mainloop()
 lopciones.mainloop()
+n = int(valor[1])
+hola(n)
 print("La aplicacion ha finalizado!!!!!!!!!!!!!!!!")
 print("Espero que le haya gustado")

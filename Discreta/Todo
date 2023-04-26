@@ -85,8 +85,6 @@ def hola(n):
                      [probsan,  probpsan,   probnan,  probpnan], 
                      [probsapn, probpsapn, probnapn, probpnapn]])
     
-    print("\n", matrix)    
-    
     states = ['soleado', 'nublado', 'parcialmente nublado','parcialmente soleado']
     actual= climas[0][n-1]
     
@@ -98,26 +96,21 @@ def hola(n):
         return nuevo_estado
     print()
     for i in range(1): 
-        print("Estado Actual:", actual,"\t\tTemperatura:", numeros[0][n-1])
         actual = predecir_clima(matrix, states, actual) 
     print()
     for i in range(4): 
         nuvtemp = Tk() 
         nuvtemp.geometry("1250x630") 
         if actual == "soleado":
-            temp = r.randint(27, 30)
             #Cambiar direccion
             bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/Soleado.png')
         elif actual == "parcialmente soleado":
-            temp = r.randint(24, 26)
             #Cambiar direccion
             bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/ParcialmenteSoleado.png')
         elif actual == "parcialmente nublado":
-            temp = r.randint(21, 23)
             #Cambiar direccion
             bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/ParcialmenteNublado.png')
         elif actual == "nublado":
-            temp = r.randint(17, 20)
             #Cambiar direccion
             bg = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/Nublado.png') 
         canvas2 = Canvas( nuvtemp, width =100, 
@@ -133,10 +126,9 @@ def hola(n):
                                                anchor = "nw", 
                                                window = buttont)  
         nuvtemp.mainloop()
-        print("Dia", i+1, ":", actual, "\t\tTemperatura:", temp)
         actual = predecir_clima(matrix, states, actual)
 
-valor = ["abc", "123"]
+valor = ["abc", "123","12"]
 comienzo = Tk() 
 comienzo.geometry("1250x630") 
 bg1 = PhotoImage(file = 'C:/Users/HP/source/repos/PythonApplication2/Discreta/iClima.png') 
@@ -168,6 +160,7 @@ def enviar():
     if op == '1':
         valor[0] = op
         botonnum()
+        botonnum2()
     elif op == '2':
         valor[0] = op
         botonnum()
@@ -219,10 +212,46 @@ def botonnum():
                     border=3,
                     width=26
                     ).pack()
-    
+def botonnum2():
+    ciudades = Tk()
+    ciudades.title("iClima ")
+    marco3 = LabelFrame(ciudades, text="Elige la ciudad\n1)Lima\n2)Arequipa\n3)Trujillo\n4)Lambayeque\n5)Ancash",)
+    marco3.pack()
+    entrada3 = Entry(marco3, 
+                    border=5,
+                    width=45
+                    )
+    entrada3.pack()
+    entrada3.insert(0,"Elige una opcion")
+    entrada3.bind("<Button-1>", lambda e: entrada3.delete(0, tkinter.END))
+    def numero():
+        op = entrada3.get() 
+        entrada3.delete(0, tkinter.END)
+        entrada3.insert(0,"Elige una opcion")
+        if 1 <= int(op) <= 5:
+            valor[2] = int(op)
+        else:
+            entrada3.delete(0, tkinter.END)
+            entrada3.insert(0,"Opcion incorrecta")
+    boton3 = Button(marco3, 
+                    text="Enviar", 
+                    command=numero,
+                    border=3,
+                    width=26
+                    ).pack()
+    boton3 = Button(marco3, 
+                    text="Salir", 
+                    command=ciudades.destroy,
+                    border=3,
+                    width=26
+                    ).pack()    
 comienzo.mainloop()
 lopciones.mainloop()
 n = int(valor[1])
-hola(n)
+if valor[0]== '1':
+    #Insertar codigo
+    print("hola")
+elif valor[0]== '2':
+    hola(n)
 print("La aplicacion ha finalizado!!!!!!!!!!!!!!!!")
 print("Espero que le haya gustado")
